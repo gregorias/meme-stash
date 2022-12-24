@@ -21,11 +21,12 @@ export default function Home() {
   const memeDb = useMemo(() => new MemeDatabase(), [])
   const [searchQuery, setSearchQuery] = useState<string>("")
   const searchTags = useMemo(() => searchQuery.split(" "), [searchQuery])
+
   const gifs = useMemo(() => {
     return (searchTags.length == 0 || searchTags[0] === "" ? memeDb.memes : memeDb.getMemesByTags(searchTags)).map(m => m.gif);
-  }, [searchTags, memeDb, JSON.stringify(searchTags)])
+  }, [searchTags, memeDb])
 
-    const theme = createTheme({
+  const theme = createTheme({
     palette: {
       primary: {
         main: '#531253',
@@ -39,17 +40,17 @@ export default function Home() {
   return (
     <>
       <ThemeProvider theme={theme}>
-      <Head>
-        <title>Meme Stash</title>
-        <meta name="description" content="An app for stashing quality reaction memes." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className={styles.main}>
-        <h1>Meme Stash</h1>
-        <TextField id="search-box" label="Search" variant="outlined" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} fullWidth={true} />
-        <GifDisplay gifs={gifs} />
-      </main>
+        <Head>
+          <title>Meme Stash</title>
+          <meta name="description" content="An app for stashing quality reaction memes." />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <main className={styles.main}>
+          <h1>Meme Stash</h1>
+          <TextField id="search-box" label="Search" variant="outlined" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} fullWidth={true} />
+          <GifDisplay gifs={gifs} />
+        </main>
       </ThemeProvider>
     </>
   )
