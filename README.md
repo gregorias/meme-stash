@@ -8,8 +8,11 @@ This section is intended for developers.
 
 This section describes how to set up the development environment.
 
-This project requires [Lefthook](https://github.com/evilmartians/lefthook) and
-[Commitlint](https://github.com/conventional-changelog/commitlint).
+This project requires the following tools:
+
+1. [Lefthook](https://github.com/evilmartians/lefthook)
+1. [Commitlint](https://github.com/conventional-changelog/commitlint)
+1. [Prettier](https://prettier.io)
 
 1. Install Lefthook's hooks:
 

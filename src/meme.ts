@@ -1,16 +1,16 @@
-import { StaticImageData } from 'next/image';
-import angryThumbsUp from '../public/angry thumbs up.gif'
-import bigThonk from '../public/big thonk.gif'
-import creepyButILikeIt from '../public/creepy but I like it.gif'
-import elsaFuck from '../public/elsa fuck.gif'
-import judgeJudyWatch from '../public/judge judy watch.gif'
-import koalaGasolineExplosion from '../public/koala gasoline explosion.gif'
-import sadCatOnAPillow from '../public/sad cat on a pillow.gif'
-import steveBuscemiFuckAllThat from "../public/steve buscemi fuck all that.gif"
+import { StaticImageData } from "next/image";
+import angryThumbsUp from "../public/angry thumbs up.gif";
+import bigThonk from "../public/big thonk.gif";
+import creepyButILikeIt from "../public/creepy but I like it.gif";
+import elsaFuck from "../public/elsa fuck.gif";
+import judgeJudyWatch from "../public/judge judy watch.gif";
+import koalaGasolineExplosion from "../public/koala gasoline explosion.gif";
+import sadCatOnAPillow from "../public/sad cat on a pillow.gif";
+import steveBuscemiFuckAllThat from "../public/steve buscemi fuck all that.gif";
 
 export interface Meme {
-  gif: StaticImageData,
-  tags: string[],
+  gif: StaticImageData;
+  tags: string[];
 }
 
 function stringToCharacterMap(s: string): Record<string, number> {
@@ -43,19 +43,22 @@ function fuzzyMatchArray(sub: string[], sup: string[]) {
 
 export class MemeDatabase {
   memes: Meme[] = [
-    { gif: angryThumbsUp, tags: [ "angry", "juho", "thumbs-up" ] },
-    { gif: bigThonk, tags: [ "think", "emoji", "thonk" ] },
-    { gif: creepyButILikeIt, tags: [ "creepy", "like" ] },
-    { gif: elsaFuck, tags: [ "elsa", "frozen", "fuck" ] },
-    { gif: judgeJudyWatch, tags: [ "judge", "judy", "watch" ] },
-    { gif: koalaGasolineExplosion, tags: [ "koala", "gasoline", "cigarette", "explosion" ] },
-    { gif: sadCatOnAPillow, tags: [ "cat", "pillow", "sad", "bed" ] },
-    { gif: steveBuscemiFuckAllThat, tags: [ "buscemi", "fuck" ] },
+    { gif: angryThumbsUp, tags: ["angry", "juho", "thumbs-up"] },
+    { gif: bigThonk, tags: ["think", "emoji", "thonk"] },
+    { gif: creepyButILikeIt, tags: ["creepy", "like"] },
+    { gif: elsaFuck, tags: ["elsa", "frozen", "fuck"] },
+    { gif: judgeJudyWatch, tags: ["judge", "judy", "watch"] },
+    {
+      gif: koalaGasolineExplosion,
+      tags: ["koala", "gasoline", "cigarette", "explosion"],
+    },
+    { gif: sadCatOnAPillow, tags: ["cat", "pillow", "sad", "bed"] },
+    { gif: steveBuscemiFuckAllThat, tags: ["buscemi", "fuck"] },
   ];
 
   getMemesByTags(tags: string[]): Meme[] {
-    console.log(tags)
+    console.log(tags);
 
-    return this.memes.filter(meme => fuzzyMatchArray(tags, meme.tags))
+    return this.memes.filter((meme) => fuzzyMatchArray(tags, meme.tags));
   }
 }

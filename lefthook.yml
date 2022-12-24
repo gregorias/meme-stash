@@ -1,3 +1,7 @@
+pre-commit:
+  commands:
+    prettier:
+      run: "prettier --check ."
 commit-msg:
   commands:
     commitlint:
