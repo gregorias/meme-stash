@@ -9,6 +9,7 @@ import judgeJudyWatch from "../public/judge judy watch.gif";
 import koalaGasolineExplosion from "../public/koala gasoline explosion.gif";
 import sadCatOnAPillow from "../public/sad cat on a pillow.gif";
 import steveBuscemiFuckAllThat from "../public/steve buscemi fuck all that.gif";
+import zombielandWipingTearsWithMoney from "../public/zombieland wiping tears with money.gif";
 
 export interface Meme {
   gif: StaticImageData;
@@ -72,6 +73,10 @@ export class MemeDatabase {
     },
     { gif: sadCatOnAPillow, tags: ["cat", "pillow", "sad", "bed"] },
     { gif: steveBuscemiFuckAllThat, tags: ["buscemi", "fuck"] },
+    {
+      gif: zombielandWipingTearsWithMoney,
+      tags: ["zombieland", "tear", "cry", "money"],
+    },
   ];
 
   getMemesByTags(tags: string[]): Meme[] {
