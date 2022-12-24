@@ -19,7 +19,7 @@
 .gif {
   margin: 1rem;
   border-radius: 0.5rem;
-  box-shadow: 0.25rem 0.25rem 0.5rem gray;
+  box-shadow: 0.25rem 0.25rem 0.5rem #e1bbd4;
 }
 .gif:hover {
   transform: scale(1.02);

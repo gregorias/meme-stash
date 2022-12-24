@@ -41,7 +41,7 @@ export default function Home() {
   const theme = createTheme({
     palette: {
       primary: {
-        main: "#531253",
+        main: "#6d1963",
       },
       secondary: {
         main: "#97D8B2",
