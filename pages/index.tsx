@@ -20,7 +20,23 @@ function GifDisplay({ gifs }: GifDisplayProps) {
         spacing={{ xs: 1, sm: 2, md: 3, lg: 4 }}
       >
         {gifs.map((gif: StaticImageData) => (
-          <Image className={styles.gif} src={gif} key={gif.src} alt="a gif" />
+          <div
+            key={gif.src}
+            onClick={async () => {
+              const blob = await fetch(gif.src).then((res) => res.blob());
+              const file = new File([blob], gif.src, { type: blob.type, })
+              const data = {
+                files: [file],
+                title: "Meme",
+                text: "Meme from MemeStash",
+              };
+              alert(JSON.stringify(data))
+              // if (!navigator.canShare?.(data)) return;
+              await navigator.share(data);
+            }}
+          >
+            <Image className={styles.gif} src={gif} key={gif.src} alt="a gif" />
+          </div>
         ))}
       </Masonry>
     </div>
