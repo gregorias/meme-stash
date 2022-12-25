@@ -1,6 +1,5 @@
 import { StaticImageData } from "next/image";
 import angryThumbsUp from "../public/angry thumbs up.gif";
-import bigThonk from "../public/big thonk.gif";
 import coralineDad from "../public/coraline dad.gif";
 import creepyButILikeIt from "../public/creepy but I like it.gif";
 import disgustedClintEastwood from "../public/disgusted clint eastwood.gif";
@@ -8,8 +7,10 @@ import elsaFuck from "../public/elsa fuck.gif";
 import judgeJudyWatch from "../public/judge judy watch.gif";
 import koalaGasolineExplosion from "../public/koala gasoline explosion.gif";
 import rockOneEyebrowRaised from "../public/rock one eyebrow raised.gif";
+import rotatingThinkEmoji from "../public/rotating think emoji.gif";
 import sadCatOnAPillow from "../public/sad cat on a pillow.gif";
 import steveBuscemiFuckAllThat from "../public/steve buscemi fuck all that.gif";
+import thonkEmoji from "../public/thonk emoji.png";
 import zombielandWipingTearsWithMoney from "../public/zombieland wiping tears with money.gif";
 
 export interface Meme {
@@ -48,7 +49,6 @@ function fuzzyMatchArray(sub: string[], sup: string[]) {
 export class MemeDatabase {
   memes: Meme[] = [
     { gif: angryThumbsUp, tags: ["angry", "juho", "thumbs-up"] },
-    { gif: bigThonk, tags: ["think", "emoji", "thonk"] },
     {
       gif: coralineDad,
       tags: [
@@ -76,8 +76,10 @@ export class MemeDatabase {
       gif: rockOneEyebrowRaised,
       tags: ["rock", "eyebrow", "raise", "dwayne-johnson"],
     },
+    { gif: rotatingThinkEmoji, tags: ["rotate", "think", "emoji"] },
     { gif: sadCatOnAPillow, tags: ["cat", "pillow", "sad", "bed"] },
     { gif: steveBuscemiFuckAllThat, tags: ["buscemi", "fuck"] },
+    { gif: thonkEmoji, tags: ["think", "emoji", "thonk"] },
     {
       gif: zombielandWipingTearsWithMoney,
       tags: ["zombieland", "tear", "cry", "money"],
