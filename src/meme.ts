@@ -11,6 +11,7 @@ import notReallyMaybeClassified from "../public/not really maybe classified.gif"
 import rockOneEyebrowRaised from "../public/rock one eyebrow raised.gif";
 import rotatingThinkEmoji from "../public/rotating think emoji.gif";
 import sadCatOnAPillow from "../public/sad cat on a pillow.gif";
+import shockedOwl from "../public/shocked owl.gif";
 import steveBuscemiFuckAllThat from "../public/steve buscemi fuck all that.gif";
 import thonkEmoji from "../public/thonk emoji.png";
 import zombielandWipingTearsWithMoney from "../public/zombieland wiping tears with money.gif";
@@ -85,6 +86,7 @@ export class MemeDatabase {
     },
     { gif: rotatingThinkEmoji, tags: ["rotate", "think", "emoji"] },
     { gif: sadCatOnAPillow, tags: ["cat", "pillow", "sad", "bed"] },
+    { gif: shockedOwl, tags: ["shock", "surprise", "owl"] },
     { gif: steveBuscemiFuckAllThat, tags: ["buscemi", "fuck"] },
     { gif: thonkEmoji, tags: ["think", "emoji", "thonk"] },
     {
