@@ -52,6 +52,7 @@ export class MemeDatabase {
       tags: [
         "glass",
         "alcohol",
+        "nod",
         "classy",
         "applause",
         "men",
