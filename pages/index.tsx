@@ -62,7 +62,7 @@ export default function Home() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <main className={styles.main}>
-          <h1>Meme Stash</h1>
+          <h1 className="text-center">Meme Stash</h1>
           <TextField
             id="search-box"
             label="Search"
