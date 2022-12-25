@@ -8,6 +8,7 @@ import elsaFuck from "../public/elsa fuck.gif";
 import judgeJudyWatch from "../public/judge judy watch.gif";
 import koalaGasolineExplosion from "../public/koala gasoline explosion.gif";
 import impossibleThanos from "../public/impossible Thanos.gif";
+import noTakBylo from "../public/no-tak-było-nie-zmyślam-urban.gif";
 import notReallyMaybeClassified from "../public/not really maybe classified.gif";
 import phewDenzelWashington from "../public/phew-denzel-washington.gif";
 import rockOneEyebrowRaised from "../public/rock one eyebrow raised.gif";
@@ -85,6 +86,7 @@ export class MemeDatabase {
       gif: koalaGasolineExplosion,
       tags: ["koala", "gasoline", "cigarette", "explosion"],
     },
+    { gif: noTakBylo, tags: ["no-tak-było-nie-zmyślam", "jerzy-urban"] },
     {
       gif: notReallyMaybeClassified,
       tags: ["not-really", "maybe", "classified", "obama"],
