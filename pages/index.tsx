@@ -16,8 +16,8 @@ function GifDisplay({ gifs }: GifDisplayProps) {
       Can't do this in Masonry, because it has its own spacing. */
     <div className="my-4 w-full flex justify-center">
       <Masonry
-        columns={{ xs: 1, sm: 2, md: 4 }}
-        spacing={{ xs: 1, sm: 2, md: 4 }}
+        columns={{ xs: 1, sm: 2, md: 3, lg: 4 }}
+        spacing={{ xs: 1, sm: 2, md: 3, lg: 4 }}
       >
         {gifs.map((gif: StaticImageData) => (
           <Image className={styles.gif} src={gif} key={gif.src} alt="a gif" />
@@ -63,21 +63,21 @@ export default function Home() {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <main
-          className={
-            " flex flex-col justify-between items-center px-6 md:px-24"
-          }
-        >
-          <h1 className="text-center my-4 text-6xl md:text-9xl">Meme Stash</h1>
-          <TextField
-            id="search-box"
-            label="Search"
-            variant="outlined"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            fullWidth={true}
-          />
-          <GifDisplay gifs={gifs} />
+        <main className="flex justify-center px-6 md:px-24">
+          <div className="flex flex-col flex-grow items-center max-w-screen-lg">
+            <h1 className="text-center my-4 text-6xl md:text-9xl">
+              Meme Stash
+            </h1>
+            <TextField
+              id="search-box"
+              label="Search"
+              variant="outlined"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              fullWidth={true}
+            />
+            <GifDisplay gifs={gifs} />
+          </div>
         </main>
       </ThemeProvider>
     </>
