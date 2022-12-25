@@ -18,6 +18,7 @@ import steveBuscemiFuckAllThat from "../public/steve buscemi fuck all that.gif";
 import tellMeMore from "../public/tell me more.gif";
 import theBigLebowskiThatsLikeYourOpinionMan from "../public/the-big-lebowski-thats-like-your-opinion-man.gif";
 import thonkEmoji from "../public/thonk emoji.png";
+import wtfMulletBlonde from "../public/what the fuck mullet blonde.gif";
 import zombielandWipingTearsWithMoney from "../public/zombieland wiping tears with money.gif";
 
 export interface Meme {
@@ -106,6 +107,10 @@ export class MemeDatabase {
       tags: ["the-big-lebowski", "thats-like-your-opinion-man"],
     },
     { gif: thonkEmoji, tags: ["think", "emoji", "thonk"] },
+    {
+      gif: wtfMulletBlonde,
+      tags: ["what-the-fuck", "wtf", "blonde", "mullet"],
+    },
     {
       gif: zombielandWipingTearsWithMoney,
       tags: ["zombieland", "tear", "cry", "money"],
