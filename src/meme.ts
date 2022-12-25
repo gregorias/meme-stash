@@ -7,6 +7,7 @@ import disgustedClintEastwood from "../public/disgusted clint eastwood.gif";
 import elsaFuck from "../public/elsa fuck.gif";
 import judgeJudyWatch from "../public/judge judy watch.gif";
 import koalaGasolineExplosion from "../public/koala gasoline explosion.gif";
+import rockOneEyebrowRaised from "../public/rock one eyebrow raised.gif";
 import sadCatOnAPillow from "../public/sad cat on a pillow.gif";
 import steveBuscemiFuckAllThat from "../public/steve buscemi fuck all that.gif";
 import zombielandWipingTearsWithMoney from "../public/zombieland wiping tears with money.gif";
@@ -70,6 +71,10 @@ export class MemeDatabase {
     {
       gif: koalaGasolineExplosion,
       tags: ["koala", "gasoline", "cigarette", "explosion"],
+    },
+    {
+      gif: rockOneEyebrowRaised,
+      tags: ["rock", "eyebrow", "raise", "dwayne-johnson"],
     },
     { gif: sadCatOnAPillow, tags: ["cat", "pillow", "sad", "bed"] },
     { gif: steveBuscemiFuckAllThat, tags: ["buscemi", "fuck"] },
