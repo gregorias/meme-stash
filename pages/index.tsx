@@ -68,7 +68,7 @@ export default function Home() {
             " flex flex-col justify-between items-center px-6 md:px-24"
           }
         >
-          <h1 className="text-center">Meme Stash</h1>
+          <h1 className="text-center my-4 text-6xl md:text-9xl">Meme Stash</h1>
           <TextField
             id="search-box"
             label="Search"
