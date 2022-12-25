@@ -9,6 +9,7 @@ import judgeJudyWatch from "../public/judge judy watch.gif";
 import koalaGasolineExplosion from "../public/koala gasoline explosion.gif";
 import impossibleThanos from "../public/impossible Thanos.gif";
 import notReallyMaybeClassified from "../public/not really maybe classified.gif";
+import phewDenzelWashington from "../public/phew-denzel-washington.gif";
 import rockOneEyebrowRaised from "../public/rock one eyebrow raised.gif";
 import rotatingThinkEmoji from "../public/rotating think emoji.gif";
 import sadCatOnAPillow from "../public/sad cat on a pillow.gif";
@@ -86,6 +87,10 @@ export class MemeDatabase {
     {
       gif: notReallyMaybeClassified,
       tags: ["not-really", "maybe", "classified", "obama"],
+    },
+    {
+      gif: phewDenzelWashington,
+      tags: ["denzel-washington", "phew", "relief"],
     },
     {
       gif: rockOneEyebrowRaised,
