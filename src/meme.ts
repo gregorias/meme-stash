@@ -6,6 +6,7 @@ import disgustedClintEastwood from "../public/disgusted clint eastwood.gif";
 import elsaFuck from "../public/elsa fuck.gif";
 import judgeJudyWatch from "../public/judge judy watch.gif";
 import koalaGasolineExplosion from "../public/koala gasoline explosion.gif";
+import impossibleThanos from "../public/impossible Thanos.gif";
 import rockOneEyebrowRaised from "../public/rock one eyebrow raised.gif";
 import rotatingThinkEmoji from "../public/rotating think emoji.gif";
 import sadCatOnAPillow from "../public/sad cat on a pillow.gif";
@@ -67,6 +68,7 @@ export class MemeDatabase {
       tags: ["coffee", "disgust", "clint-eastwood"],
     },
     { gif: elsaFuck, tags: ["elsa", "frozen", "fuck"] },
+    { gif: impossibleThanos, tags: ["impossible", "thanos"] },
     { gif: judgeJudyWatch, tags: ["judge", "judy", "watch"] },
     {
       gif: koalaGasolineExplosion,
