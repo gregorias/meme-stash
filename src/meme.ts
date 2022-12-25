@@ -8,7 +8,7 @@ import elsaFuck from "../public/elsa fuck.gif";
 import judgeJudyWatch from "../public/judge judy watch.gif";
 import koalaGasolineExplosion from "../public/koala gasoline explosion.gif";
 import impossibleThanos from "../public/impossible Thanos.gif";
-import noTakBylo from "../public/no-tak-było-nie-zmyślam-urban.gif";
+import noTakBylo from "../public/no-tak-bylo-nie-zmyslam-urban.gif";
 import notReallyMaybeClassified from "../public/not really maybe classified.gif";
 import phewDenzelWashington from "../public/phew-denzel-washington.gif";
 import rockOneEyebrowRaised from "../public/rock one eyebrow raised.gif";
