@@ -20,6 +20,7 @@ import theBigLebowskiThatsLikeYourOpinionMan from "../public/the-big-lebowski-th
 import thonkEmoji from "../public/thonk emoji.png";
 import wtfMulletBlonde from "../public/what the fuck mullet blonde.gif";
 import zombielandWipingTearsWithMoney from "../public/zombieland wiping tears with money.gif";
+import { fuzzyMatch } from "./string-extra";
 
 export interface Meme {
   gif: StaticImageData;
@@ -37,17 +38,6 @@ function stringToCharacterMap(s: string): Record<string, number> {
     }
   }
   return characterMap;
-}
-
-function fuzzyMatch(pattern: string, target: string): boolean {
-  let patternCharacterMap = stringToCharacterMap(pattern);
-  let targetCharacterMap = stringToCharacterMap(target);
-
-  for (let key in patternCharacterMap) {
-    if (!(key in targetCharacterMap)) return false;
-    if (patternCharacterMap[key] > targetCharacterMap[key]) return false;
-  }
-  return true;
 }
 
 function fuzzyMatchArray(sub: string[], sup: string[]) {
