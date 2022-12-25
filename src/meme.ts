@@ -1,5 +1,6 @@
 import { StaticImageData } from "next/image";
 import angryThumbsUp from "../public/angry thumbs up.gif";
+import classyApplause from "../public/classy applause.gif";
 import coralineDad from "../public/coraline dad.gif";
 import creepyButILikeIt from "../public/creepy but I like it.gif";
 import disgustedClintEastwood from "../public/disgusted clint eastwood.gif";
@@ -52,6 +53,10 @@ function fuzzyMatchArray(sub: string[], sup: string[]) {
 export class MemeDatabase {
   memes: Meme[] = [
     { gif: angryThumbsUp, tags: ["angry", "juho", "thumbs-up"] },
+    {
+      gif: classyApplause,
+      tags: ["classy", "applause", "men", "bravo", "respect"],
+    },
     {
       gif: coralineDad,
       tags: [
