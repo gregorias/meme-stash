@@ -15,6 +15,7 @@ import sadCatOnAPillow from "../public/sad cat on a pillow.gif";
 import shockedOwl from "../public/shocked owl.gif";
 import steveBuscemiFuckAllThat from "../public/steve buscemi fuck all that.gif";
 import tellMeMore from "../public/tell me more.gif";
+import theBigLebowskiThatsLikeYourOpinionMan from "../public/the-big-lebowski-thats-like-your-opinion-man.gif";
 import thonkEmoji from "../public/thonk emoji.png";
 import zombielandWipingTearsWithMoney from "../public/zombieland wiping tears with money.gif";
 
@@ -95,6 +96,10 @@ export class MemeDatabase {
     { gif: shockedOwl, tags: ["shock", "surprise", "owl"] },
     { gif: steveBuscemiFuckAllThat, tags: ["buscemi", "fuck"] },
     { gif: tellMeMore, tags: ["tell-me-more", "song", "high-school"] },
+    {
+      gif: theBigLebowskiThatsLikeYourOpinionMan,
+      tags: ["the-big-lebowski", "thats-like-your-opinion-man"],
+    },
     { gif: thonkEmoji, tags: ["think", "emoji", "thonk"] },
     {
       gif: zombielandWipingTearsWithMoney,
