@@ -59,7 +59,15 @@ export class MemeDatabase {
     { gif: angryThumbsUp, tags: ["angry", "juho", "thumbs-up"] },
     {
       gif: classyApplause,
-      tags: ["classy", "applause", "men", "bravo", "respect"],
+      tags: [
+        "glass",
+        "alcohol",
+        "classy",
+        "applause",
+        "men",
+        "bravo",
+        "respect",
+      ],
     },
     {
       gif: coralineDad,
