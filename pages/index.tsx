@@ -12,15 +12,18 @@ interface GifDisplayProps {
 
 function GifDisplay({ gifs }: GifDisplayProps) {
   return (
-    <Masonry
-      columns={{ xs: 1, sm: 2, md: 4 }}
-      spacing={{ xs: 1, sm: 2, md: 4 }}
-      classes={{ root: "my-4" }}
-    >
-      {gifs.map((gif: StaticImageData) => (
-        <img className={styles.gif} src={gif.src} key={gif.src} alt="a gif" />
-      ))}
-    </Masonry>
+    /* Add a container that adds vertical margin.
+      Can't do this in Masonry, because it has its own spacing. */
+    <div className="my-4 w-full flex justify-center">
+      <Masonry
+        columns={{ xs: 1, sm: 2, md: 4 }}
+        spacing={{ xs: 1, sm: 2, md: 4 }}
+      >
+        {gifs.map((gif: StaticImageData) => (
+          <Image className={styles.gif} src={gif} key={gif.src} alt="a gif" />
+        ))}
+      </Masonry>
+    </div>
   );
 }
 
@@ -60,7 +63,11 @@ export default function Home() {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <main className={styles.main}>
+        <main
+          className={
+            " flex flex-col justify-between items-center px-6 md:px-24"
+          }
+        >
           <h1 className="text-center">Meme Stash</h1>
           <TextField
             id="search-box"
