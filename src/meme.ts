@@ -15,6 +15,7 @@ import rotatingThinkEmoji from "../public/rotating think emoji.gif";
 import sadCatOnAPillow from "../public/sad cat on a pillow.gif";
 import shockedOwl from "../public/shocked owl.gif";
 import steveBuscemiFuckAllThat from "../public/steve buscemi fuck all that.gif";
+import sureNoddingDoubt from "../public/sure nodding doubt.gif";
 import tellMeMore from "../public/tell me more.gif";
 import theBigLebowskiThatsLikeYourOpinionMan from "../public/the-big-lebowski-thats-like-your-opinion-man.gif";
 import thonkEmoji from "../public/thonk emoji.png";
@@ -100,6 +101,7 @@ export class MemeDatabase {
     { gif: sadCatOnAPillow, tags: ["cat", "pillow", "sad", "bed"] },
     { gif: shockedOwl, tags: ["shock", "surprise", "owl"] },
     { gif: steveBuscemiFuckAllThat, tags: ["buscemi", "fuck"] },
+    { gif: sureNoddingDoubt, tags: ["sure", "nod", "doubt"] },
     { gif: tellMeMore, tags: ["tell-me-more", "song", "high-school"] },
     {
       gif: theBigLebowskiThatsLikeYourOpinionMan,
