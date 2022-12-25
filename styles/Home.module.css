@@ -5,19 +5,7 @@
   align-items: center;
   padding: 6rem;
 }
-.gifDisplay {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 1rem 0;
-}
-.gifDisplay::after {
-  content: "";
-  flex: auto;
-}
 .gif {
-  margin: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0.25rem 0.25rem 0.5rem #e1bbd4;
 }

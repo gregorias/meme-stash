@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.css";
 import { createTheme, TextField, ThemeProvider } from "@mui/material";
 import { MemeDatabase } from "../src/meme";
 import { useMemo, useState } from "react";
+import { Masonry } from "@mui/lab";
 
 interface GifDisplayProps {
   gifs: StaticImageData[];
@@ -11,17 +12,15 @@ interface GifDisplayProps {
 
 function GifDisplay({ gifs }: GifDisplayProps) {
   return (
-    <div className={styles.gifDisplay}>
-      {gifs.map((gif: StaticImageData, i: any) => (
-        <Image
-          className={styles.gif}
-          src={gif}
-          key={i}
-          alt="a gif"
-          height={150}
-        />
+    <Masonry
+      columns={{ xs: 1, sm: 2, md: 4 }}
+      spacing={{ xs: 1, sm: 2, md: 4 }}
+      classes={{ root: "my-4" }}
+    >
+      {gifs.map((gif: StaticImageData) => (
+        <img className={styles.gif} src={gif.src} key={gif.src} alt="a gif" />
       ))}
-    </div>
+    </Masonry>
   );
 }
 
