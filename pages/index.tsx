@@ -1,5 +1,6 @@
 import path from "path";
 import Head from "next/head";
+import { Lobster } from "@next/font/google";
 import Image, { StaticImageData } from "next/image";
 import { getPlaiceholder } from "plaiceholder";
 import styles from "../styles/Home.module.css";
@@ -59,6 +60,8 @@ interface LoadedMeme {
   tags: string[];
 }
 
+const lobster = Lobster({ weight: "400", subsets: ["latin"] });
+
 interface HomeProps {
   memes: LoadedMeme[];
 }
@@ -105,7 +108,11 @@ export default function Home({ memes }: HomeProps) {
         </Head>
         <main className="flex justify-center px-6 md:px-24">
           <div className="flex flex-col flex-grow items-center max-w-screen-lg">
-            <h1 className="text-center my-4 text-6xl md:text-9xl">
+            <h1
+              className={
+                lobster.className + " text-center my-4 text-6xl md:text-9xl"
+              }
+            >
               Meme Stash
             </h1>
             <TextField
