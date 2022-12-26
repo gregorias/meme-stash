@@ -6,6 +6,7 @@ import coralineDad from "../public/memes/coraline dad.gif";
 import creepyButILikeIt from "../public/memes/creepy but I like it.gif";
 import disgustedClintEastwood from "../public/memes/disgusted clint eastwood.gif";
 import elsaFuck from "../public/memes/elsa fuck.gif";
+import hackerman from "../public/memes/hackerman.gif";
 import homerBackIntoBush from "../public/memes/homer-back-into-bush.gif";
 import judgeJudyWatch from "../public/memes/judge judy watch.gif";
 import koalaGasolineExplosion from "../public/memes/koala gasoline explosion.gif";
@@ -82,6 +83,11 @@ export class MemeDatabase {
       tags: ["coffee", "disgust", "clint-eastwood"],
     },
     { img: elsaFuck, src: "elsa fuck.gif", tags: ["elsa", "frozen", "fuck"] },
+    {
+      img: hackerman,
+      src: "hackerman.gif",
+      tags: ["hackerman", "moustache", "80s"],
+    },
     {
       img: homerBackIntoBush,
       src: "homer-back-into-bush.gif",
