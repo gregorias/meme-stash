@@ -6,6 +6,7 @@ import coralineDad from "../public/memes/coraline dad.gif";
 import creepyButILikeIt from "../public/memes/creepy but I like it.gif";
 import disgustedClintEastwood from "../public/memes/disgusted clint eastwood.gif";
 import elsaFuck from "../public/memes/elsa fuck.gif";
+import homerBackIntoBush from "../public/memes/homer-back-into-bush.gif";
 import judgeJudyWatch from "../public/memes/judge judy watch.gif";
 import koalaGasolineExplosion from "../public/memes/koala gasoline explosion.gif";
 import impossibleThanos from "../public/memes/impossible Thanos.gif";
@@ -81,6 +82,19 @@ export class MemeDatabase {
       tags: ["coffee", "disgust", "clint-eastwood"],
     },
     { img: elsaFuck, src: "elsa fuck.gif", tags: ["elsa", "frozen", "fuck"] },
+    {
+      img: homerBackIntoBush,
+      src: "homer-back-into-bush.gif",
+      tags: [
+        "simpsons",
+        "homer-simpson",
+        "bush",
+        "back",
+        "retreat",
+        "embarassment",
+      ],
+    },
+
     {
       img: impossibleThanos,
       src: "impossible Thanos.gif",
