@@ -1,21 +1,33 @@
+import path from "path";
 import Head from "next/head";
 import Image, { StaticImageData } from "next/image";
+import { getPlaiceholder } from "plaiceholder";
 import styles from "../styles/Home.module.css";
 import { createTheme, TextField, ThemeProvider } from "@mui/material";
-import { MemeDatabase } from "../src/meme";
+import { MemeDatabase, Meme, fuzzyMatchArray } from "../src/meme";
 import { useMemo, useState } from "react";
 import { Masonry } from "@mui/lab";
 
-interface MemeProps {
+interface MemeImage {
   meme: StaticImageData;
+  // Base64 encoded placeholder.
+  placeholder?: string;
 }
 
-function Meme({ meme }: MemeProps) {
-  return <Image className={styles.gif} src={meme} alt="a meme" />;
+function Meme({ meme, placeholder }: MemeImage) {
+  return (
+    <Image
+      className={styles.gif}
+      src={meme}
+      placeholder={placeholder ? "blur" : "empty"}
+      blurDataURL={placeholder ? placeholder : undefined}
+      alt="a meme"
+    />
+  );
 }
 
 interface MemeDisplayProps {
-  memes: StaticImageData[];
+  memes: MemeImage[];
 }
 
 function MemeDisplay({ memes }: MemeDisplayProps) {
@@ -27,26 +39,43 @@ function MemeDisplay({ memes }: MemeDisplayProps) {
         columns={{ xs: 1, sm: 2, md: 3, lg: 4 }}
         spacing={{ xs: 1, sm: 2, md: 3, lg: 4 }}
       >
-        {memes.map((meme: StaticImageData) => (
-          <Meme meme={meme} key={meme.src} />
-        ))}
+        {memes.map((memeWithPlaceholder) => {
+          return (
+            <Meme
+              meme={memeWithPlaceholder.meme}
+              placeholder={memeWithPlaceholder.placeholder}
+              key={memeWithPlaceholder.meme.src}
+            />
+          );
+        })}
       </Masonry>
     </div>
   );
 }
 
-export default function Home() {
-  const memeDb = useMemo(() => new MemeDatabase(), []);
+interface LoadedMeme {
+  img: StaticImageData;
+  placeholder?: string;
+  tags: string[];
+}
+
+interface HomeProps {
+  memes: LoadedMeme[];
+}
+
+export default function Home({ memes }: HomeProps) {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const searchTags = useMemo(() => searchQuery.split(" "), [searchQuery]);
-
-  const memes = useMemo(() => {
-    return (
-      searchTags.length == 0 || searchTags[0] === ""
-        ? memeDb.memes
-        : memeDb.getMemesByTags(searchTags)
-    ).map((m) => m.gif);
-  }, [searchTags, memeDb]);
+  const displayedMemes = useMemo<MemeImage[]>(
+    () =>
+      (searchTags.length == 0 || searchTags[0] === ""
+        ? memes
+        : memes.filter((m) => fuzzyMatchArray(searchTags, m.tags))
+      ).map((m) => {
+        return { meme: m.img, placeholder: m.placeholder };
+      }),
+    [searchTags, memes]
+  );
 
   const theme = createTheme({
     palette: {
@@ -85,10 +114,32 @@ export default function Home() {
               fullWidth={true}
               autoFocus={true}
             />
-            <MemeDisplay memes={memes} />
+            <MemeDisplay memes={displayedMemes} />
           </div>
         </main>
       </ThemeProvider>
     </>
   );
+}
+
+async function extractGifPlaceholder(imgSrc: string): Promise<string | null> {
+  if (!path.basename(imgSrc).endsWith(".gif")) return null;
+
+  const plaiceholder = await getPlaiceholder("/memes/firstFrames/" + imgSrc);
+  return plaiceholder.base64;
+}
+
+export async function getStaticProps() {
+  const memeDb = new MemeDatabase();
+  const rawMemes: Meme[] = memeDb.memes;
+  const loadedMemes: LoadedMeme[] = [];
+  for (let rawMeme of rawMemes) {
+    const placeholder = await extractGifPlaceholder(rawMeme.src);
+    let loadedMeme: LoadedMeme = { img: rawMeme.img, tags: rawMeme.tags };
+    if (placeholder) loadedMeme.placeholder = placeholder;
+    loadedMemes.push(loadedMeme);
+  }
+  return {
+    props: { memes: loadedMemes },
+  };
 }

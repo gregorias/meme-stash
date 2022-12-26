@@ -1,43 +1,51 @@
 import { StaticImageData } from "next/image";
-import angryThumbsUp from "../public/angry thumbs up.gif";
-import classyApplause from "../public/classy applause.gif";
-import coralineDad from "../public/coraline dad.gif";
-import creepyButILikeIt from "../public/creepy but I like it.gif";
-import disgustedClintEastwood from "../public/disgusted clint eastwood.gif";
-import elsaFuck from "../public/elsa fuck.gif";
-import judgeJudyWatch from "../public/judge judy watch.gif";
-import koalaGasolineExplosion from "../public/koala gasoline explosion.gif";
-import impossibleThanos from "../public/impossible Thanos.gif";
-import noTakBylo from "../public/no-tak-bylo-nie-zmyslam-urban.gif";
-import notReallyMaybeClassified from "../public/not really maybe classified.gif";
-import phewDenzelWashington from "../public/phew-denzel-washington.gif";
-import rockOneEyebrowRaised from "../public/rock one eyebrow raised.gif";
-import rotatingThinkEmoji from "../public/rotating think emoji.gif";
-import sadCatOnAPillow from "../public/sad cat on a pillow.gif";
-import shockedOwl from "../public/shocked owl.gif";
-import steveBuscemiFuckAllThat from "../public/steve buscemi fuck all that.gif";
-import sureNoddingDoubt from "../public/sure nodding doubt.gif";
-import tellMeMore from "../public/tell me more.gif";
-import theBigLebowskiThatsLikeYourOpinionMan from "../public/the-big-lebowski-thats-like-your-opinion-man.gif";
-import thonkEmoji from "../public/thonk emoji.png";
-import wtfMulletBlonde from "../public/what the fuck mullet blonde.gif";
-import zombielandWipingTearsWithMoney from "../public/zombieland wiping tears with money.gif";
 import { fuzzyMatch } from "./string-extra";
+import angryThumbsUp from "../public/memes/angry thumbs up.gif";
+import classyApplause from "../public/memes/classy applause.gif";
+import coralineDad from "../public/memes/coraline dad.gif";
+import creepyButILikeIt from "../public/memes/creepy but I like it.gif";
+import disgustedClintEastwood from "../public/memes/disgusted clint eastwood.gif";
+import elsaFuck from "../public/memes/elsa fuck.gif";
+import judgeJudyWatch from "../public/memes/judge judy watch.gif";
+import koalaGasolineExplosion from "../public/memes/koala gasoline explosion.gif";
+import impossibleThanos from "../public/memes/impossible Thanos.gif";
+import noTakBylo from "../public/memes/no-tak-bylo-nie-zmyslam-urban.gif";
+import notReallyMaybeClassified from "../public/memes/not really maybe classified.gif";
+import phewDenzelWashington from "../public/memes/phew-denzel-washington.gif";
+import rockOneEyebrowRaised from "../public/memes/rock one eyebrow raised.gif";
+import rotatingThinkEmoji from "../public/memes/rotating think emoji.gif";
+import sadCatOnAPillow from "../public/memes/sad cat on a pillow.gif";
+import shockedOwl from "../public/memes/shocked owl.gif";
+import steveBuscemiFuckAllThat from "../public/memes/steve buscemi fuck all that.gif";
+import sureNoddingDoubt from "../public/memes/sure nodding doubt.gif";
+import tellMeMore from "../public/memes/tell me more.gif";
+import theBigLebowskiThatsLikeYourOpinionMan from "../public/memes/the-big-lebowski-thats-like-your-opinion-man.gif";
+import thonkEmoji from "../public/memes/thonk emoji.png";
+import wtfMulletBlonde from "../public/memes/what the fuck mullet blonde.gif";
+import zombielandWipingTearsWithMoney from "../public/memes/zombieland wiping tears with money.gif";
 
 export interface Meme {
-  gif: StaticImageData;
+  // The meme image.
+  img: StaticImageData;
+  // The basename of the meme in public/memes/.
+  src: string;
   tags: string[];
 }
 
-function fuzzyMatchArray(sub: string[], sup: string[]) {
+export function fuzzyMatchArray(sub: string[], sup: string[]) {
   return sub.every((vs) => sup.find((vt) => fuzzyMatch(vs, vt)) !== undefined);
 }
 
 export class MemeDatabase {
   memes: Meme[] = [
-    { gif: angryThumbsUp, tags: ["angry", "juho", "thumbs-up"] },
     {
-      gif: classyApplause,
+      img: angryThumbsUp,
+      src: "angry thumbs up.gif",
+      tags: ["angry", "juho", "thumbs-up"],
+    },
+    {
+      img: classyApplause,
+      src: "classy applause.gif",
       tags: [
         "glass",
         "alcohol",
@@ -50,7 +58,8 @@ export class MemeDatabase {
       ],
     },
     {
-      gif: coralineDad,
+      img: coralineDad,
+      src: "coraline dad.gif",
       tags: [
         "coraline",
         "father",
@@ -61,48 +70,100 @@ export class MemeDatabase {
         "boredom",
       ],
     },
-    { gif: creepyButILikeIt, tags: ["creepy", "like"] },
     {
-      gif: disgustedClintEastwood,
+      img: creepyButILikeIt,
+      src: "creepy but I like it.gif",
+      tags: ["creepy", "like"],
+    },
+    {
+      img: disgustedClintEastwood,
+      src: "disgusted clint eastwood.gif",
       tags: ["coffee", "disgust", "clint-eastwood"],
     },
-    { gif: elsaFuck, tags: ["elsa", "frozen", "fuck"] },
-    { gif: impossibleThanos, tags: ["impossible", "thanos"] },
-    { gif: judgeJudyWatch, tags: ["judge", "judy", "watch"] },
+    { img: elsaFuck, src: "elsa fuck.gif", tags: ["elsa", "frozen", "fuck"] },
     {
-      gif: koalaGasolineExplosion,
+      img: impossibleThanos,
+      src: "impossible Thanos.gif",
+      tags: ["impossible", "thanos"],
+    },
+    {
+      img: judgeJudyWatch,
+      src: "judge judy watch.gif",
+      tags: ["judge", "judy", "watch"],
+    },
+    {
+      img: koalaGasolineExplosion,
+      src: "koala gasoline explosion.gif",
       tags: ["koala", "gasoline", "cigarette", "explosion"],
     },
-    { gif: noTakBylo, tags: ["no-tak-było-nie-zmyślam", "jerzy-urban"] },
     {
-      gif: notReallyMaybeClassified,
+      img: noTakBylo,
+      src: "no-tak-bylo-nie-zmyslam-urban.gif",
+      tags: ["no-tak-było-nie-zmyślam", "jerzy-urban"],
+    },
+    {
+      img: notReallyMaybeClassified,
+      src: "not really maybe classified.gif",
       tags: ["not-really", "maybe", "classified", "obama"],
     },
     {
-      gif: phewDenzelWashington,
+      img: phewDenzelWashington,
+      src: "phew-denzel-washington.gif",
       tags: ["denzel-washington", "phew", "relief"],
     },
     {
-      gif: rockOneEyebrowRaised,
+      img: rockOneEyebrowRaised,
+      src: "rock one eyebrow raised.gif",
       tags: ["rock", "eyebrow", "raise", "dwayne-johnson"],
     },
-    { gif: rotatingThinkEmoji, tags: ["rotate", "think", "emoji"] },
-    { gif: sadCatOnAPillow, tags: ["cat", "pillow", "sad", "bed"] },
-    { gif: shockedOwl, tags: ["shock", "surprise", "owl"] },
-    { gif: steveBuscemiFuckAllThat, tags: ["buscemi", "fuck"] },
-    { gif: sureNoddingDoubt, tags: ["sure", "nod", "doubt"] },
-    { gif: tellMeMore, tags: ["tell-me-more", "song", "high-school"] },
     {
-      gif: theBigLebowskiThatsLikeYourOpinionMan,
+      img: rotatingThinkEmoji,
+      src: "rotating think emoji.gif",
+      tags: ["rotate", "think", "emoji"],
+    },
+    {
+      img: sadCatOnAPillow,
+      src: "sad cat on a pillow.gif",
+      tags: ["cat", "pillow", "sad", "bed"],
+    },
+    {
+      img: shockedOwl,
+      src: "shocked owl.gif",
+      tags: ["shock", "surprise", "owl"],
+    },
+    {
+      img: steveBuscemiFuckAllThat,
+      src: "steve buscemi fuck all that.gif",
+      tags: ["buscemi", "fuck"],
+    },
+    {
+      img: sureNoddingDoubt,
+      src: "sure nodding doubt.gif",
+      tags: ["sure", "nod", "doubt"],
+    },
+    {
+      img: tellMeMore,
+      src: "tell me more.gif",
+      tags: ["tell-me-more", "song", "high-school"],
+    },
+    {
+      img: theBigLebowskiThatsLikeYourOpinionMan,
+      src: "the-big-lebowski-thats-like-your-opinion-man.gif",
       tags: ["the-big-lebowski", "thats-like-your-opinion-man"],
     },
-    { gif: thonkEmoji, tags: ["think", "emoji", "thonk"] },
     {
-      gif: wtfMulletBlonde,
+      img: thonkEmoji,
+      src: "thonk emoji.png",
+      tags: ["think", "emoji", "thonk"],
+    },
+    {
+      img: wtfMulletBlonde,
+      src: "what the fuck mullet blonde.gif",
       tags: ["what-the-fuck", "wtf", "blonde", "mullet"],
     },
     {
-      gif: zombielandWipingTearsWithMoney,
+      img: zombielandWipingTearsWithMoney,
+      src: "zombieland wiping tears with money.gif",
       tags: ["zombieland", "tear", "cry", "money"],
     },
   ];
