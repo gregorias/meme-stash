@@ -6,11 +6,19 @@ import { MemeDatabase } from "../src/meme";
 import { useMemo, useState } from "react";
 import { Masonry } from "@mui/lab";
 
-interface GifDisplayProps {
-  gifs: StaticImageData[];
+interface MemeProps {
+  meme: StaticImageData;
 }
 
-function GifDisplay({ gifs }: GifDisplayProps) {
+function Meme({ meme }: MemeProps) {
+  return <Image className={styles.gif} src={meme} alt="a meme" />;
+}
+
+interface MemeDisplayProps {
+  memes: StaticImageData[];
+}
+
+function MemeDisplay({ memes }: MemeDisplayProps) {
   return (
     /* Add a container that adds vertical margin.
       Can't do this in Masonry, because it has its own spacing. */
@@ -19,8 +27,8 @@ function GifDisplay({ gifs }: GifDisplayProps) {
         columns={{ xs: 1, sm: 2, md: 3, lg: 4 }}
         spacing={{ xs: 1, sm: 2, md: 3, lg: 4 }}
       >
-        {gifs.map((gif: StaticImageData) => (
-          <Image className={styles.gif} src={gif} key={gif.src} alt="a gif" />
+        {memes.map((meme: StaticImageData) => (
+          <Meme meme={meme} key={meme.src} />
         ))}
       </Masonry>
     </div>
@@ -32,7 +40,7 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const searchTags = useMemo(() => searchQuery.split(" "), [searchQuery]);
 
-  const gifs = useMemo(() => {
+  const memes = useMemo(() => {
     return (
       searchTags.length == 0 || searchTags[0] === ""
         ? memeDb.memes
@@ -77,7 +85,7 @@ export default function Home() {
               fullWidth={true}
               autoFocus={true}
             />
-            <GifDisplay gifs={gifs} />
+            <MemeDisplay memes={memes} />
           </div>
         </main>
       </ThemeProvider>
