@@ -65,7 +65,10 @@ interface HomeProps {
 
 export default function Home({ memes }: HomeProps) {
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const searchTags = useMemo(() => searchQuery.split(" "), [searchQuery]);
+  const searchTags = useMemo(
+    () => searchQuery.split(" ").map((s) => s.toLowerCase()),
+    [searchQuery]
+  );
   const displayedMemes = useMemo<MemeImage[]>(
     () =>
       (searchTags.length == 0 || searchTags[0] === ""
