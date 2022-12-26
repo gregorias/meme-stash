@@ -29,19 +29,6 @@ export interface Meme {
   tags: string[];
 }
 
-function stringToCharacterMap(s: string): Record<string, number> {
-  let characterMap: Record<string, number> = {};
-  for (let i = 0; i < s.length; i++) {
-    const char = s.charAt(i);
-    if (char in characterMap) {
-      characterMap[char] += 1;
-    } else {
-      characterMap[char] = 1;
-    }
-  }
-  return characterMap;
-}
-
 function fuzzyMatchArray(sub: string[], sup: string[]) {
   return sub.every((vs) => sup.find((vt) => fuzzyMatch(vs, vt)) !== undefined);
 }
