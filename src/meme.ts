@@ -7,6 +7,7 @@ import creepyButILikeIt from "../public/memes/creepy but I like it.gif";
 import disgustedClintEastwood from "../public/memes/disgusted clint eastwood.gif";
 import elsaFuck from "../public/memes/elsa fuck.gif";
 import hackerman from "../public/memes/hackerman.gif";
+import headTurningRockEyebrowRaise from "../public/memes/rock head turning eyebrow raise.gif";
 import homerBackIntoBush from "../public/memes/homer-back-into-bush.gif";
 import judgeJudyWatch from "../public/memes/judge judy watch.gif";
 import koalaGasolineExplosion from "../public/memes/koala gasoline explosion.gif";
@@ -88,6 +89,11 @@ export class MemeDatabase {
       img: hackerman,
       src: "hackerman.gif",
       tags: ["hackerman", "moustache", "80s"],
+    },
+    {
+      img: headTurningRockEyebrowRaise,
+      src: "rock head turning eyebrow raise.gif",
+      tags: ["dwayne-johnson", "rock", "head-turn", "eyebrow-raise"],
     },
     {
       img: homerBackIntoBush,
