@@ -2,6 +2,8 @@ pre-commit:
   commands:
     prettier:
       run: "prettier --check ."
+    unit-tests:
+      run: "npm run test"
 commit-msg:
   commands:
     commitlint:
