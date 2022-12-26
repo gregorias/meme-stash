@@ -11,6 +11,7 @@ import homerBackIntoBush from "../public/memes/homer-back-into-bush.gif";
 import judgeJudyWatch from "../public/memes/judge judy watch.gif";
 import koalaGasolineExplosion from "../public/memes/koala gasoline explosion.gif";
 import impossibleThanos from "../public/memes/impossible Thanos.gif";
+import laughingLizard from "../public/memes/Laughing Lizard.gif";
 import noTakBylo from "../public/memes/no-tak-bylo-nie-zmyslam-urban.gif";
 import notReallyMaybeClassified from "../public/memes/not really maybe classified.gif";
 import phewDenzelWashington from "../public/memes/phew-denzel-washington.gif";
@@ -115,6 +116,11 @@ export class MemeDatabase {
       img: koalaGasolineExplosion,
       src: "koala gasoline explosion.gif",
       tags: ["koala", "gasoline", "cigarette", "explosion"],
+    },
+    {
+      img: laughingLizard,
+      src: "Laughing Lizard.gif",
+      tags: ["laugh", "lizard", "hehehehehe", "desert"],
     },
     {
       img: noTakBylo,
