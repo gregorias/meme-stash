@@ -9,6 +9,7 @@ import elsaFuck from "../public/memes/elsa fuck.gif";
 import hackerman from "../public/memes/hackerman.gif";
 import headTurningRockEyebrowRaise from "../public/memes/rock head turning eyebrow raise.gif";
 import homerBackIntoBush from "../public/memes/homer-back-into-bush.gif";
+import imNotProudOfIt from "../public/memes/im-not-proud-of-it.gif";
 import judgeJudyWatch from "../public/memes/judge judy watch.gif";
 import koalaGasolineExplosion from "../public/memes/koala gasoline explosion.gif";
 import impossibleThanos from "../public/memes/impossible Thanos.gif";
@@ -107,7 +108,11 @@ export class MemeDatabase {
         "embarassment",
       ],
     },
-
+    {
+      img: imNotProudOfIt,
+      src: "im-not-proud-of-it.gif",
+      tags: ["im-not-proud-of-it", "i-am-a-bit", "simon-pegg", "worlds-end"],
+    },
     {
       img: impossibleThanos,
       src: "impossible Thanos.gif",
