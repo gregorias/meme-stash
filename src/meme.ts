@@ -18,6 +18,7 @@ import noTakBylo from "../public/memes/no-tak-bylo-nie-zmyslam-urban.gif";
 import notReallyMaybeClassified from "../public/memes/not really maybe classified.gif";
 import phewDenzelWashington from "../public/memes/phew-denzel-washington.gif";
 import plotTwist from "../public/memes/plot twist.gif";
+import popcornChewing from "../public/memes/popcorn chewing.gif";
 import rockOneEyebrowRaised from "../public/memes/rock one eyebrow raised.gif";
 import rotatingThinkEmoji from "../public/memes/rotating think emoji.gif";
 import sadCatOnAPillow from "../public/memes/sad cat on a pillow.gif";
@@ -150,6 +151,11 @@ export class MemeDatabase {
       tags: ["denzel-washington", "phew", "relief"],
     },
     { img: plotTwist, src: "plot twist.gif", tags: ["plot", "twist"] },
+    {
+      img: popcornChewing,
+      src: "popcorn chewing.gif",
+      tags: ["popcorn", "chewing"],
+    },
     {
       img: rockOneEyebrowRaised,
       src: "rock one eyebrow raised.gif",
