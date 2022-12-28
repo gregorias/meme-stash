@@ -1,5 +1,11 @@
 An app for stashing quality reaction memes.
 
+## Design
+
+This site hardcodes the displayed memes in the repo under `public/memes`. It
+also displays placeholder images. To support that feature, generate files
+containing the first frame of each GIF. Use `bash tools/generate-first-frames.sh`.
+
 ## Development
 
 This section is intended for developers.
