@@ -32,6 +32,11 @@ interface MemeDisplayProps {
 }
 
 function MemeDisplay({ memes }: MemeDisplayProps) {
+  // Do not render MemeDisplay server-side.
+  // Masonry is a JS-based layout. The static rendering results
+  // in a flash of a single column on wide-screens.
+  // It's better to leave the space empty.
+  if (typeof window === "undefined") return <></>;
   return (
     /* Add a container that adds vertical margin.
       Can't do this in Masonry, because it has its own spacing. */
