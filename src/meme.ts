@@ -1,6 +1,7 @@
 import { StaticImageData } from "next/image";
 import { fuzzyMatch } from "./string-extra";
 import angryThumbsUp from "../public/memes/angry thumbs up.gif";
+import byAllMeansContinue from "../public/memes/by all means continue.gif";
 import classyApplause from "../public/memes/classy applause.gif";
 import coralineDad from "../public/memes/coraline dad.gif";
 import creepyButILikeIt from "../public/memes/creepy but I like it.gif";
@@ -53,6 +54,11 @@ export class MemeDatabase {
       img: angryThumbsUp,
       src: "angry thumbs up.gif",
       tags: ["angry", "juho", "thumbs-up"],
+    },
+    {
+      img: byAllMeansContinue,
+      src: "by all means continue.gif",
+      tags: ["love-is-war", "chika", "by-all-means-continue"],
     },
     {
       img: classyApplause,
