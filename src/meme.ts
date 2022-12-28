@@ -28,6 +28,7 @@ import sureNoddingDoubt from "../public/memes/sure nodding doubt.gif";
 import tellMeMore from "../public/memes/tell me more.gif";
 import theBigLebowskiThatsLikeYourOpinionMan from "../public/memes/the-big-lebowski-thats-like-your-opinion-man.gif";
 import thonkEmoji from "../public/memes/thonk emoji.png";
+import weMustHaveVengeance from "../public/memes/we must have vengeance.gif";
 import wtfMulletBlonde from "../public/memes/what the fuck mullet blonde.gif";
 import zombielandWipingTearsWithMoney from "../public/memes/zombieland wiping tears with money.gif";
 import iUnderstoodThatReference from "../public/memes/I understood that reference.gif";
@@ -203,6 +204,11 @@ export class MemeDatabase {
       img: thonkEmoji,
       src: "thonk emoji.png",
       tags: ["think", "emoji", "thonk"],
+    },
+    {
+      img: weMustHaveVengeance,
+      src: "we must have vengeance.gif",
+      tags: ["we-must-have-vengeance", "furby", "arrow"],
     },
     {
       img: wtfMulletBlonde,
