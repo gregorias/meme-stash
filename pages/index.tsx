@@ -1,6 +1,3 @@
-// The home page displaying a masonry layout of memes.
-//
-// This page accepts a query parameter.
 import path from "path";
 import Head from "next/head";
 import { Lobster } from "@next/font/google";
@@ -9,9 +6,8 @@ import { getPlaiceholder } from "plaiceholder";
 import styles from "../styles/Home.module.css";
 import { createTheme, TextField, ThemeProvider } from "@mui/material";
 import { MemeDatabase, Meme, fuzzyMatchArray } from "../src/meme";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Masonry } from "@mui/lab";
-import { StringParam, useQueryParam, withDefault } from "use-query-params";
 
 interface MemeImage {
   meme: StaticImageData;
@@ -71,10 +67,7 @@ interface HomeProps {
 }
 
 export default function Home({ memes }: HomeProps) {
-  const [searchQuery, setSearchQuery] = useQueryParam(
-    "query",
-    withDefault(StringParam, "")
-  );
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const searchTags = useMemo(
     () => searchQuery.split(" ").map((s) => s.toLowerCase()),
     [searchQuery]
@@ -146,8 +139,7 @@ async function extractGifPlaceholder(imgSrc: string): Promise<string | null> {
   return plaiceholder.base64;
 }
 
-// Use server-side rendering, because we rely on query parameters.
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const memeDb = new MemeDatabase();
   const rawMemes: Meme[] = memeDb.memes;
   const loadedMemes: LoadedMeme[] = [];
