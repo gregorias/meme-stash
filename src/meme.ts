@@ -30,6 +30,9 @@ import theBigLebowskiThatsLikeYourOpinionMan from "../public/memes/the-big-lebow
 import thonkEmoji from "../public/memes/thonk emoji.png";
 import wtfMulletBlonde from "../public/memes/what the fuck mullet blonde.gif";
 import zombielandWipingTearsWithMoney from "../public/memes/zombieland wiping tears with money.gif";
+import iUnderstoodThatReference from "../public/memes/I understood that reference.gif";
+import weHaveHadAgoodRun from "../public/memes/we-have-had-a-good-run-kaulder.gif";
+import whatTheHeckIsGoingOnHere from "../public/memes/what-the-heck-is-going-on-here-confused.gif";
 
 export interface Meme {
   // The meme image.
@@ -210,6 +213,21 @@ export class MemeDatabase {
       img: zombielandWipingTearsWithMoney,
       src: "zombieland wiping tears with money.gif",
       tags: ["zombieland", "tear", "cry", "money"],
+    },
+    {
+      img: iUnderstoodThatReference,
+      src: "I understood that reference.gif",
+      tags: ["captain-america", "i-understood-that-reference", "avengers"],
+    },
+    {
+      img: weHaveHadAgoodRun,
+      src: "we-have-had-a-good-run-kaulder.gif",
+      tags: ["we-have-had-a-good-run"],
+    },
+    {
+      img: whatTheHeckIsGoingOnHere,
+      src: "what-the-heck-is-going-on-here-confused.gif",
+      tags: ["will-smith", "what-the-hell-is-going-on-here"],
     },
   ];
 
