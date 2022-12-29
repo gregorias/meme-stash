@@ -26,7 +26,7 @@ async function main(): Promise<void> {
   const memeBasename: string = path.basename(memePath);
 
   fs.copyFileSync(memePath, `public/memes/${memeBasename}`);
-  exec(`git add public/memes/${memeBasename}`);
+  exec(`git add 'public/memes/${memeBasename}'`);
   exec("bash tools/generate-first-frames.sh");
   if (memeBasename.endsWith(".gif"))
     exec(`git add public/memes/firstFrames/${memeBasename}`);
