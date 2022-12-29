@@ -2,9 +2,15 @@ An app for stashing quality reaction memes.
 
 ## Design
 
-This site hardcodes the displayed memes in the repo under `public/memes`. It
-also displays placeholder images. To support that feature, generate files
-containing the first frame of each GIF. Use `bash tools/generate-first-frames.sh`.
+This site hardcodes the memes in the repo under `public/memes`. It
+also displays placeholder images that you pregenerate and save at `public/memes/firstFrames`.
+You can pregenere the first frames of each GIF with `bash tools/generate-first-frames.sh`.
+
+To add a new meme, run
+
+```shell
+ts-node --esm tools/add-meme.mts GIF_PATH
+```
 
 ## Development
 
@@ -23,7 +29,10 @@ This project requires the following tools:
 To setup the project, run the following:
 
 1. Install Lefthook's hooks:
-
-```shell
-lefthook install
-```
+   ```shell
+   lefthook install
+   ```
+1. Initialize the project:
+   ```shell
+   npm i
+   ```
