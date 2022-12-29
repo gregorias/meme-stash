@@ -35,6 +35,7 @@ import zombielandWipingTearsWithMoney from "../public/memes/zombieland wiping te
 import iUnderstoodThatReference from "../public/memes/I understood that reference.gif";
 import weHaveHadAgoodRun from "../public/memes/we-have-had-a-good-run-kaulder.gif";
 import whatTheHeckIsGoingOnHere from "../public/memes/what-the-heck-is-going-on-here-confused.gif";
+import alarm from "../public/memes/alarm.gif";
 
 export interface Meme {
   // The meme image.
@@ -241,6 +242,7 @@ export class MemeDatabase {
       src: "what-the-heck-is-going-on-here-confused.gif",
       tags: ["will-smith", "what-the-hell-is-going-on-here"],
     },
+    { img: alarm, src: "alarm.gif", tags: ["alarm", "red"] },
   ];
 
   getMemesByTags(tags: string[]): Meme[] {
