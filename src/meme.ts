@@ -36,6 +36,7 @@ import iUnderstoodThatReference from "../public/memes/I understood that referenc
 import weHaveHadAgoodRun from "../public/memes/we-have-had-a-good-run-kaulder.gif";
 import whatTheHeckIsGoingOnHere from "../public/memes/what-the-heck-is-going-on-here-confused.gif";
 import alarm from "../public/memes/alarm.gif";
+import wtfCat from "../public/memes/WTF cat.gif";
 
 export interface Meme {
   // The meme image.
@@ -243,6 +244,11 @@ export class MemeDatabase {
       tags: ["will-smith", "what-the-hell-is-going-on-here"],
     },
     { img: alarm, src: "alarm.gif", tags: ["alarm", "red"] },
+    {
+      img: wtfCat,
+      src: "WTF cat.gif",
+      tags: ["wtf", "what-the-fuck", "cat", "surprise", "shock"],
+    },
   ];
 
   getMemesByTags(tags: string[]): Meme[] {
