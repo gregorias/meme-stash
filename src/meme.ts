@@ -46,6 +46,7 @@ import whateverDuck from "../public/memes/whatever.gif";
 import shameCube from "../public/memes/shame cube.gif";
 import noted from "../public/memes/noted-notes.gif";
 import awakeButAtWhatCostCat from "../public/memes/awake but at what cost cat.png";
+import letsNotGetAheadOfOurselves from "../public/memes/Let's not get ahead of ourselves.png";
 
 export interface Meme {
   // The meme image.
@@ -292,6 +293,11 @@ export class MemeDatabase {
       img: awakeButAtWhatCostCat,
       src: "awake but at what cost cat.png",
       tags: ["awake-but-at-what-cost", "cat"],
+    },
+    {
+      img: letsNotGetAheadOfOurselves,
+      src: "Let's not get ahead of ourselves.png",
+      tags: ["lets-not-get-ahead-of-ourselves"],
     },
   ];
 
