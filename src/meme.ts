@@ -48,6 +48,7 @@ import noted from "../public/memes/noted-notes.gif";
 import awakeButAtWhatCostCat from "../public/memes/awake but at what cost cat.png";
 import letsNotGetAheadOfOurselves from "../public/memes/Let's not get ahead of ourselves.png";
 import anticipationTruckCrash from "../public/memes/anticipation truck crash.gif";
+import disappointedSoccer from "../public/memes/disappointed soccer.gif";
 
 export interface Meme {
   // The meme image.
@@ -304,6 +305,11 @@ export class MemeDatabase {
       img: anticipationTruckCrash,
       src: "anticipation truck crash.gif",
       tags: ["anticipation", "truck", "crash"],
+    },
+    {
+      img: disappointedSoccer,
+      src: "disappointed soccer.gif",
+      tags: ["disappointed", "soccer"],
     },
   ];
 
