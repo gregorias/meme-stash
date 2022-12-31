@@ -45,6 +45,7 @@ import brainHeart from "../public/memes/Brain heart.gif";
 import whateverDuck from "../public/memes/whatever.gif";
 import shameCube from "../public/memes/shame cube.gif";
 import noted from "../public/memes/noted-notes.gif";
+import awakeButAtWhatCostCat from "../public/memes/awake but at what cost cat.png";
 
 export interface Meme {
   // The meme image.
@@ -287,6 +288,11 @@ export class MemeDatabase {
     { img: whateverDuck, src: "whatever.gif", tags: ["whatever", "duck"] },
     { img: shameCube, src: "shame cube.gif", tags: ["shame", "cube"] },
     { img: noted, src: "noted-notes.gif", tags: ["noted", "notes", "office"] },
+    {
+      img: awakeButAtWhatCostCat,
+      src: "awake but at what cost cat.png",
+      tags: ["awake-but-at-what-cost", "cat"],
+    },
   ];
 
   getMemesByTags(tags: string[]): Meme[] {
