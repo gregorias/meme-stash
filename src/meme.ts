@@ -49,6 +49,7 @@ import awakeButAtWhatCostCat from "../public/memes/awake but at what cost cat.pn
 import letsNotGetAheadOfOurselves from "../public/memes/Let's not get ahead of ourselves.png";
 import anticipationTruckCrash from "../public/memes/anticipation truck crash.gif";
 import disappointedSoccer from "../public/memes/disappointed soccer.gif";
+import sweat from "../public/memes/Sweat Peele Key.gif";
 
 export interface Meme {
   // The meme image.
@@ -311,6 +312,7 @@ export class MemeDatabase {
       src: "disappointed soccer.gif",
       tags: ["disappointed", "soccer"],
     },
+    { img: sweat, src: "Sweat Peele Key.gif", tags: ["sweat", "peele", "key"] },
   ];
 
   getMemesByTags(tags: string[]): Meme[] {
