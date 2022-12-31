@@ -41,6 +41,7 @@ import hammeringWallace from "../public/memes/hammering wallace.gif";
 import flintLockwoodOpenMouth from "../public/memes/wow omg flint-lockwood.webp";
 import skepticalCouldIntriguedMay from "../public/memes/skeptical-intrigued.gif";
 import gretaYouHaveStolenMyDreams from "../public/memes/greta-you-have-stolen-my-dreams.gif";
+import brainHeart from "../public/memes/Brain heart.gif";
 
 export interface Meme {
   // The meme image.
@@ -279,6 +280,7 @@ export class MemeDatabase {
       src: "greta-you-have-stolen-my-dreams.gif",
       tags: ["greta-thunberg", "you-have-stolen-my-dreams", "empty-words"],
     },
+    { img: brainHeart, src: "Brain heart.gif", tags: ["brain", "heart"] },
   ];
 
   getMemesByTags(tags: string[]): Meme[] {
