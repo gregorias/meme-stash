@@ -47,6 +47,7 @@ import shameCube from "../public/memes/shame cube.gif";
 import noted from "../public/memes/noted-notes.gif";
 import awakeButAtWhatCostCat from "../public/memes/awake but at what cost cat.png";
 import letsNotGetAheadOfOurselves from "../public/memes/Let's not get ahead of ourselves.png";
+import anticipationTruckCrash from "../public/memes/anticipation truck crash.gif";
 
 export interface Meme {
   // The meme image.
@@ -298,6 +299,11 @@ export class MemeDatabase {
       img: letsNotGetAheadOfOurselves,
       src: "Let's not get ahead of ourselves.png",
       tags: ["lets-not-get-ahead-of-ourselves"],
+    },
+    {
+      img: anticipationTruckCrash,
+      src: "anticipation truck crash.gif",
+      tags: ["anticipation", "truck", "crash"],
     },
   ];
 
