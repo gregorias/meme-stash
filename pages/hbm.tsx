@@ -91,7 +91,7 @@ export default function HappyBirthdayMaciej() {
               Wszystkiego Najlepszego, Maciej!
             </h1>
             <Button variant="contained" size="large" href="/">
-              Ack
+              Odbierz prezent
             </Button>
           </div>
         </main>
