@@ -40,6 +40,7 @@ import wtfCat from "../public/memes/WTF cat.gif";
 import hammeringWallace from "../public/memes/hammering wallace.gif";
 import flintLockwoodOpenMouth from "../public/memes/wow omg flint-lockwood.webp";
 import skepticalCouldIntriguedMay from "../public/memes/skeptical-intrigued.gif";
+import gretaYouHaveStolenMyDreams from "../public/memes/greta-you-have-stolen-my-dreams.gif";
 
 export interface Meme {
   // The meme image.
@@ -272,6 +273,11 @@ export class MemeDatabase {
       img: skepticalCouldIntriguedMay,
       src: "skeptical-intrigued.gif",
       tags: ["skeptical-you-could", "intrigued-you-may"],
+    },
+    {
+      img: gretaYouHaveStolenMyDreams,
+      src: "greta-you-have-stolen-my-dreams.gif",
+      tags: ["greta-thunberg", "you-have-stolen-my-dreams", "empty-words"],
     },
   ];
 
