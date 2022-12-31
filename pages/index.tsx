@@ -6,7 +6,7 @@ import { getPlaiceholder } from "plaiceholder";
 import styles from "../styles/Home.module.css";
 import { createTheme, TextField, ThemeProvider } from "@mui/material";
 import { MemeDatabase, Meme, fuzzyMatchArray } from "../src/meme";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Masonry } from "@mui/lab";
 
 interface MemeImage {
@@ -36,7 +36,16 @@ function MemeDisplay({ memes }: MemeDisplayProps) {
   // Masonry is a JS-based layout. The static rendering results
   // in a flash of a single column on wide-screens.
   // It's better to leave the space empty.
-  if (typeof window === "undefined") return <></>;
+  const [showMemes, setShowMemes] = useState<boolean>(false);
+
+  useEffect(() => {
+    setShowMemes(true);
+    return () => {
+      setShowMemes(false);
+    };
+  }, [setShowMemes]);
+
+  if (!showMemes) return <></>;
   return (
     /* Add a container that adds vertical margin.
       Can't do this in Masonry, because it has its own spacing. */
