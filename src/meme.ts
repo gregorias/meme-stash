@@ -38,6 +38,7 @@ import whatTheHeckIsGoingOnHere from "../public/memes/what-the-heck-is-going-on-
 import alarm from "../public/memes/alarm.gif";
 import wtfCat from "../public/memes/WTF cat.gif";
 import hammeringWallace from "../public/memes/hammering wallace.gif";
+import flintLockwoodOpenMouth from "../public/memes/wow omg flint-lockwood.webp";
 
 export interface Meme {
   // The meme image.
@@ -254,6 +255,17 @@ export class MemeDatabase {
       img: hammeringWallace,
       src: "hammering wallace.gif",
       tags: ["hammer", "wallace", "work"],
+    },
+    {
+      img: flintLockwoodOpenMouth,
+      src: "wow omg flint-lockwood.webp",
+      tags: [
+        "flint-lockwood",
+        "wow",
+        "omg",
+        "cloudy-with-a-chance-of-meatballs",
+        "mouth-open",
+      ],
     },
   ];
 
