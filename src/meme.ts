@@ -50,6 +50,7 @@ import letsNotGetAheadOfOurselves from "../public/memes/Let's not get ahead of o
 import anticipationTruckCrash from "../public/memes/anticipation truck crash.gif";
 import disappointedSoccer from "../public/memes/disappointed soccer.gif";
 import sweat from "../public/memes/Sweat Peele Key.gif";
+import whatAmIWatching from "../public/memes/ja pierdolę nic nie rozumiem.gif";
 
 export interface Meme {
   // The meme image.
@@ -313,6 +314,11 @@ export class MemeDatabase {
       tags: ["disappointed", "soccer"],
     },
     { img: sweat, src: "Sweat Peele Key.gif", tags: ["sweat", "peele", "key"] },
+    {
+      img: whatAmIWatching,
+      src: "ja pierdolę nic nie rozumiem.gif",
+      tags: ["black-man", "phone", "bus"],
+    },
   ];
 
   getMemesByTags(tags: string[]): Meme[] {
