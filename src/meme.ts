@@ -37,6 +37,7 @@ import weHaveHadAgoodRun from "../public/memes/we-have-had-a-good-run-kaulder.gi
 import whatTheHeckIsGoingOnHere from "../public/memes/what-the-heck-is-going-on-here-confused.gif";
 import alarm from "../public/memes/alarm.gif";
 import wtfCat from "../public/memes/WTF cat.gif";
+import hammeringWallace from "../public/memes/hammering wallace.gif";
 
 export interface Meme {
   // The meme image.
@@ -248,6 +249,11 @@ export class MemeDatabase {
       img: wtfCat,
       src: "WTF cat.gif",
       tags: ["wtf", "what-the-fuck", "cat", "surprise", "shock"],
+    },
+    {
+      img: hammeringWallace,
+      src: "hammering wallace.gif",
+      tags: ["hammer", "wallace", "work"],
     },
   ];
 
