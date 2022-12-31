@@ -43,6 +43,7 @@ import skepticalCouldIntriguedMay from "../public/memes/skeptical-intrigued.gif"
 import gretaYouHaveStolenMyDreams from "../public/memes/greta-you-have-stolen-my-dreams.gif";
 import brainHeart from "../public/memes/Brain heart.gif";
 import whateverDuck from "../public/memes/whatever.gif";
+import shameCube from "../public/memes/shame cube.gif";
 
 export interface Meme {
   // The meme image.
@@ -283,6 +284,7 @@ export class MemeDatabase {
     },
     { img: brainHeart, src: "Brain heart.gif", tags: ["brain", "heart"] },
     { img: whateverDuck, src: "whatever.gif", tags: ["whatever", "duck"] },
+    { img: shameCube, src: "shame cube.gif", tags: ["shame", "cube"] },
   ];
 
   getMemesByTags(tags: string[]): Meme[] {
