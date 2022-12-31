@@ -39,6 +39,7 @@ import alarm from "../public/memes/alarm.gif";
 import wtfCat from "../public/memes/WTF cat.gif";
 import hammeringWallace from "../public/memes/hammering wallace.gif";
 import flintLockwoodOpenMouth from "../public/memes/wow omg flint-lockwood.webp";
+import skepticalCouldIntriguedMay from "../public/memes/skeptical-intrigued.gif";
 
 export interface Meme {
   // The meme image.
@@ -266,6 +267,11 @@ export class MemeDatabase {
         "cloudy-with-a-chance-of-meatballs",
         "mouth-open",
       ],
+    },
+    {
+      img: skepticalCouldIntriguedMay,
+      src: "skeptical-intrigued.gif",
+      tags: ["skeptical-you-could", "intrigued-you-may"],
     },
   ];
 
