@@ -52,6 +52,7 @@ import disappointedSoccer from "../public/memes/disappointed soccer.gif";
 import sweat from "../public/memes/Sweat Peele Key.gif";
 import whatAmIWatching from "../public/memes/ja pierdolę nic nie rozumiem.gif";
 import freeGuyWakeUp from "../public/memes/free guy wake up.gif";
+import okay from "../public/memes/okay.gif";
 
 export interface Meme {
   // The meme image.
@@ -325,6 +326,7 @@ export class MemeDatabase {
       src: "free guy wake up.gif",
       tags: ["free-guy", "wake-up", "bed"],
     },
+    { img: okay, src: "okay.gif", tags: ["okay", "black-man"] },
   ];
 
   getMemesByTags(tags: string[]): Meme[] {
