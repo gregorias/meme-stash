@@ -1,7 +1,12 @@
-.gif {
-  border-radius: 0.5rem;
+.gifContainer {
   box-shadow: 0.25rem 0.25rem 0.5rem #e1bbd4;
 }
-.gif:hover {
-  transform: scale(1.02);
+.gifContainer:hover {
+  transform: scale(1.03);
+}
+.gifContainer:hover .overlay {
+  display: block;
+}
+.gifContainer:hover .tags {
+  display: block;
 }

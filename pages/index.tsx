@@ -1,6 +1,6 @@
 import path from "path";
 import Head from "next/head";
-import { Lobster } from "@next/font/google";
+import { Lobster, Roboto } from "@next/font/google";
 import Image, { StaticImageData } from "next/image";
 import { getPlaiceholder } from "plaiceholder";
 import styles from "../styles/Home.module.css";
@@ -9,21 +9,51 @@ import { MemeDatabase, Meme, fuzzyMatchArray } from "../src/meme";
 import { useEffect, useMemo, useState } from "react";
 import { Masonry } from "@mui/lab";
 
+const lobster = Lobster({ weight: "400", subsets: ["latin"] });
+const roboto = Roboto({ weight: "400" });
+
 interface MemeImage {
   meme: StaticImageData;
   // Base64 encoded placeholder.
   placeholder?: string;
+  tags: string[];
 }
 
-function Meme({ meme, placeholder }: MemeImage) {
+function Meme({ meme, placeholder, tags }: MemeImage) {
+  const tagString = useMemo(() => tags.map((t) => "#" + t).join(" "), [tags]);
   return (
-    <Image
-      className={styles.gif}
-      src={meme}
-      placeholder={placeholder ? "blur" : "empty"}
-      blurDataURL={placeholder ? placeholder : undefined}
-      alt="a meme"
-    />
+    <div
+      className={
+        styles.gifContainer + " flex relative overflow-clip rounded-lg"
+      }
+    >
+      <Image
+        className={styles.gif + " w-full"}
+        src={meme}
+        placeholder={placeholder ? "blur" : "empty"}
+        blurDataURL={placeholder ? placeholder : undefined}
+        alt="a meme"
+      />
+      <div
+        className={
+          styles.overlay +
+          " hidden absolute left-0 top-0 w-full h-full hover:block pointer-events-none"
+        }
+        style={{
+          backgroundImage:
+            "linear-gradient(-180deg,transparent 50%,rgba(0,0,0,.75) 99%)",
+        }}
+      />
+      <div
+        className={
+          styles.tags +
+          ` ${roboto.className}` +
+          " hidden absolute w-full p-2 bottom-0 text-white pointer-events-none text-sm"
+        }
+      >
+        {tagString}
+      </div>
+    </div>
   );
 }
 
@@ -59,6 +89,7 @@ function MemeDisplay({ memes }: MemeDisplayProps) {
             <Meme
               meme={memeWithPlaceholder.meme}
               placeholder={memeWithPlaceholder.placeholder}
+              tags={memeWithPlaceholder.tags}
               key={memeWithPlaceholder.meme.src}
             />
           );
@@ -73,8 +104,6 @@ interface LoadedMeme {
   placeholder?: string;
   tags: string[];
 }
-
-const lobster = Lobster({ weight: "400", subsets: ["latin"] });
 
 interface HomeProps {
   memes: LoadedMeme[];
@@ -92,7 +121,7 @@ export default function Home({ memes }: HomeProps) {
         ? memes
         : memes.filter((m) => fuzzyMatchArray(searchTags, m.tags))
       ).map((m) => {
-        return { meme: m.img, placeholder: m.placeholder };
+        return { meme: m.img, placeholder: m.placeholder, tags: m.tags };
       }),
     [searchTags, memes]
   );
