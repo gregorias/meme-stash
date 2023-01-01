@@ -59,6 +59,8 @@ export interface Meme {
   img: StaticImageData;
   // The basename of the meme in public/memes/.
   src: string;
+  // A description of the image.
+  description?: string;
   tags: string[];
 }
 
@@ -326,7 +328,12 @@ export class MemeDatabase {
       src: "free guy wake up.gif",
       tags: ["free-guy", "wake-up", "bed"],
     },
-    { img: okay, src: "okay.gif", tags: ["okay", "black-man"] },
+    {
+      img: okay,
+      src: "okay.gif",
+      description: "A black man saying OK after a brief pause.",
+      tags: ["okay", "black-man"],
+    },
   ];
 
   getMemesByTags(tags: string[]): Meme[] {

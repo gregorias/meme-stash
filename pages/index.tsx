@@ -16,10 +16,11 @@ interface MemeImage {
   meme: StaticImageData;
   // Base64 encoded placeholder.
   placeholder?: string;
+  description?: string;
   tags: string[];
 }
 
-function Meme({ meme, placeholder, tags }: MemeImage) {
+function Meme({ meme, placeholder, description, tags }: MemeImage) {
   const tagString = useMemo(() => tags.map((t) => "#" + t).join(" "), [tags]);
   return (
     <div
@@ -32,7 +33,7 @@ function Meme({ meme, placeholder, tags }: MemeImage) {
         src={meme}
         placeholder={placeholder ? "blur" : "empty"}
         blurDataURL={placeholder ? placeholder : undefined}
-        alt="a meme"
+        alt={description ?? "a meme"}
       />
       <div
         className={
@@ -89,6 +90,7 @@ function MemeDisplay({ memes }: MemeDisplayProps) {
             <Meme
               meme={memeWithPlaceholder.meme}
               placeholder={memeWithPlaceholder.placeholder}
+              description={memeWithPlaceholder.description}
               tags={memeWithPlaceholder.tags}
               key={memeWithPlaceholder.meme.src}
             />
@@ -102,6 +104,7 @@ function MemeDisplay({ memes }: MemeDisplayProps) {
 interface LoadedMeme {
   img: StaticImageData;
   placeholder?: string;
+  description?: string;
   tags: string[];
 }
 
@@ -121,7 +124,12 @@ export default function Home({ memes }: HomeProps) {
         ? memes
         : memes.filter((m) => fuzzyMatchArray(searchTags, m.tags))
       ).map((m) => {
-        return { meme: m.img, placeholder: m.placeholder, tags: m.tags };
+        return {
+          meme: m.img,
+          placeholder: m.placeholder,
+          description: m.description,
+          tags: m.tags,
+        };
       }),
     [searchTags, memes]
   );
@@ -190,6 +198,7 @@ export async function getStaticProps() {
     const placeholder = await extractGifPlaceholder(rawMeme.src);
     let loadedMeme: LoadedMeme = { img: rawMeme.img, tags: rawMeme.tags };
     if (placeholder) loadedMeme.placeholder = placeholder;
+    if (rawMeme.description) loadedMeme.description = rawMeme.description;
     loadedMemes.push(loadedMeme);
   }
   return {
