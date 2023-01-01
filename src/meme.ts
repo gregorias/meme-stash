@@ -51,6 +51,7 @@ import anticipationTruckCrash from "../public/memes/anticipation truck crash.gif
 import disappointedSoccer from "../public/memes/disappointed soccer.gif";
 import sweat from "../public/memes/Sweat Peele Key.gif";
 import whatAmIWatching from "../public/memes/ja pierdolę nic nie rozumiem.gif";
+import freeGuyWakeUp from "../public/memes/free guy wake up.gif";
 
 export interface Meme {
   // The meme image.
@@ -318,6 +319,11 @@ export class MemeDatabase {
       img: whatAmIWatching,
       src: "ja pierdolę nic nie rozumiem.gif",
       tags: ["black-man", "phone", "bus"],
+    },
+    {
+      img: freeGuyWakeUp,
+      src: "free guy wake up.gif",
+      tags: ["free-guy", "wake-up", "bed"],
     },
   ];
 
