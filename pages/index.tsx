@@ -168,7 +168,7 @@ export default function Home({ memes }: HomeProps) {
             </h1>
             <TextField
               id="search-box"
-              label="Search"
+              label={'Search (e.g., "bed cat", "fuck")'}
               variant="outlined"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
