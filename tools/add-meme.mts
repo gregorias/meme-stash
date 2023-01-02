@@ -28,19 +28,23 @@ async function main(): Promise<void> {
   fs.copyFileSync(memePath, `public/memes/${memeBasename}`);
   exec(`git add 'public/memes/${memeBasename}'`);
   exec("bash tools/generate-first-frames.sh");
-  if (memeBasename.endsWith(".gif"))
-    exec(`git add public/memes/firstFrames/${memeBasename}`);
+  if (memeBasename.endsWith(".gif")) {
+    exec(`git add 'public/memes/firstFrames/${memeBasename}'`);
+  }
 
   const rl = readline.createInterface({ input, output });
   const memeId = await rl.question(
-    'Provide the meme identifier (e.g., "fooMeme"): '
+    'Provide the meme\'s identifier (e.g., "fooMeme"): '
+  );
+  const memeDescription = await rl.question(
+    'Provide the meme\'s description (e.g., "A foo guy doing bar."): '
   );
   const memeTags = await rl.question(
-    'Provide the meme tags (e.g., "foo foo-meme"): '
+    'Provide the meme\'s tags (e.g., "foo foo-meme"): '
   );
   rl.close();
 
-  addMemeToRegistry(memeId, memeBasename, memeTags.split(" "));
+  addMemeToRegistry(memeId, memeBasename, memeDescription, memeTags.split(" "));
   exec("prettier --write .");
   // Not adding src/meme.ts, so that the operator is incentivized to verify.
 }
@@ -68,6 +72,7 @@ function getPropertyOrThrow(
 async function addMemeToRegistry(
   memeName: string,
   memeBasename: string,
+  memeDescription: string,
   tags: string[]
 ) {
   const MEME_REGISTRY_FILENAME = "src/meme.ts";
@@ -83,6 +88,7 @@ async function addMemeToRegistry(
   const memesInitializer = getPropertyOrThrow(memeDb, "memes").getInitializer();
   if (!(memesInitializer instanceof ArrayLiteralExpression)) throw new Error();
   memesInitializer.addElement(`{ img: ${memeName}, src: '${memeBasename}',
+                              description: "${memeDescription}",
                               tags: [${tags
                                 .map((t) => '"' + t + '"')
                                 .join(",")}]}`);
