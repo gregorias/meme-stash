@@ -10,7 +10,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Masonry } from "@mui/lab";
 
 const lobster = Lobster({ weight: "400", subsets: ["latin"] });
-const roboto = Roboto({ weight: "400" });
+const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 
 interface MemeImage {
   meme: StaticImageData;
