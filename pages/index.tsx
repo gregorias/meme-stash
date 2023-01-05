@@ -82,8 +82,8 @@ function MemeDisplay({ memes }: MemeDisplayProps) {
       Can't do this in Masonry, because it has its own spacing. */
     <div className="my-4 w-full flex justify-center">
       <Masonry
-        columns={{ xs: 1, sm: 2, md: 3, lg: 4 }}
-        spacing={{ xs: 1, sm: 2, md: 3, lg: 4 }}
+        columns={{ xs: 2, sm: 3, lg: 4 }}
+        spacing={{ xs: 2, sm: 3, lg: 4 }}
       >
         {memes.map((memeWithPlaceholder) => {
           return (
@@ -157,11 +157,11 @@ export default function Home({ memes }: HomeProps) {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <main className="flex justify-center px-6 md:px-24">
+        <main className="flex justify-center px-4 md:px-24">
           <div className="flex flex-col flex-grow items-center max-w-screen-lg">
             <h1
               className={
-                lobster.className + " text-center my-4 text-6xl md:text-9xl"
+                lobster.className + " text-center my-4 text-6xl lg:text-9xl"
               }
             >
               Meme Stash
