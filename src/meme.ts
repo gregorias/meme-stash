@@ -54,6 +54,7 @@ import whatAmIWatching from "../public/memes/ja pierdolę nic nie rozumiem.gif";
 import freeGuyWakeUp from "../public/memes/free guy wake up.gif";
 import okay from "../public/memes/okay.gif";
 import keyLaugh from "../public/memes/peele laugh suit.gif";
+import whatHaveIBecomeCat from "../public/memes/what have i become cat.png";
 
 export interface Meme {
   // The meme image.
@@ -340,6 +341,13 @@ export class MemeDatabase {
       src: "peele laugh suit.gif",
       description: "Keegan-Michael Key wearing a suit and laughing.",
       tags: ["key", "laugh", "suit"],
+    },
+    {
+      img: whatHaveIBecomeCat,
+      src: "what have i become cat.png",
+      description:
+        'A sad cat looking in a mirror and asking "What have I become?"',
+      tags: ["cat", "mirror", "what-have-i-become", "sad"],
     },
   ];
 
