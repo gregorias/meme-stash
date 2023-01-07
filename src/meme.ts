@@ -358,10 +358,4 @@ export class MemeDatabase {
       tags: ["heresy-detected", "warhammer", "alert"],
     },
   ];
-
-  getMemesByTags(tags: string[]): Meme[] {
-    console.log(tags);
-
-    return this.memes.filter((meme) => fuzzyMatchArray(tags, meme.tags));
-  }
 }
