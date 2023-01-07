@@ -55,6 +55,7 @@ import freeGuyWakeUp from "../public/memes/free guy wake up.gif";
 import okay from "../public/memes/okay.gif";
 import keyLaugh from "../public/memes/peele laugh suit.gif";
 import whatHaveIBecomeCat from "../public/memes/what have i become cat.png";
+import heresyDetected from "../public/memes/heresy detected.gif";
 
 export interface Meme {
   // The meme image.
@@ -348,6 +349,13 @@ export class MemeDatabase {
       description:
         'A sad cat looking in a mirror and asking "What have I become?"',
       tags: ["cat", "mirror", "what-have-i-become", "sad"],
+    },
+    {
+      img: heresyDetected,
+      src: "heresy detected.gif",
+      description:
+        'Warhammer soldiers running around with a "Heresy Detected" alert in the background.',
+      tags: ["heresy-detected", "warhammer", "alert"],
     },
   ];
 
