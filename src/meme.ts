@@ -48,7 +48,7 @@ import shameCube from "../public/memes/shame cube.gif";
 import noted from "../public/memes/noted-notes.gif";
 import awakeButAtWhatCostCat from "../public/memes/awake but at what cost cat.png";
 import letsNotGetAheadOfOurselves from "../public/memes/Let's not get ahead of ourselves.png";
-import anticipationTruckCrash from "../public/memes/anticipation truck crash.gif";
+import anticipationTruckCrash from "../public/memes/anticipation truck crash.webp";
 import disappointedSoccer from "../public/memes/disappointed soccer.gif";
 import sweat from "../public/memes/Sweat Peele Key.gif";
 import whatAmIWatching from "../public/memes/ja pierdolę nic nie rozumiem.gif";
@@ -304,7 +304,7 @@ export const MEMES: Meme[] = [
   },
   {
     img: anticipationTruckCrash,
-    src: "anticipation truck crash.gif",
+    src: "anticipation truck crash.webp",
     tags: ["anticipation", "truck", "crash"],
   },
   {
