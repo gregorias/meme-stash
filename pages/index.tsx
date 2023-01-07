@@ -15,13 +15,11 @@ const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 
 interface MemeImage {
   meme: StaticImageData;
-  // Base64 encoded placeholder.
-  placeholder?: string;
   description?: string;
   tags: string[];
 }
 
-function Meme({ meme, placeholder, description, tags }: MemeImage) {
+function Meme({ meme, description, tags }: MemeImage) {
   const tagString = useMemo(() => tags.map((t) => "#" + t).join(" "), [tags]);
   return (
     <div
@@ -32,8 +30,8 @@ function Meme({ meme, placeholder, description, tags }: MemeImage) {
       <Image
         className={styles.gif + " w-full"}
         src={meme}
-        placeholder={placeholder ? "blur" : "empty"}
-        blurDataURL={placeholder ? placeholder : undefined}
+        placeholder="blur"
+        blurDataURL={meme.blurDataURL}
         alt={description ?? "a meme"}
       />
       <div
@@ -86,14 +84,13 @@ function MemeDisplay({ memes }: MemeDisplayProps) {
         columns={{ xs: 2, sm: 3, lg: 4 }}
         spacing={{ xs: 2, sm: 3, lg: 4 }}
       >
-        {memes.map((memeWithPlaceholder) => {
+        {memes.map((meme) => {
           return (
             <Meme
-              meme={memeWithPlaceholder.meme}
-              placeholder={memeWithPlaceholder.placeholder}
-              description={memeWithPlaceholder.description}
-              tags={memeWithPlaceholder.tags}
-              key={memeWithPlaceholder.meme.src}
+              meme={meme.meme}
+              description={meme.description}
+              tags={meme.tags}
+              key={meme.meme.src}
             />
           );
         })}
@@ -104,7 +101,6 @@ function MemeDisplay({ memes }: MemeDisplayProps) {
 
 interface LoadedMeme {
   img: StaticImageData;
-  placeholder?: string;
   description?: string;
   tags: string[];
 }
@@ -127,7 +123,6 @@ export default function Home({ memes }: HomeProps) {
       ).map((m) => {
         return {
           meme: m.img,
-          placeholder: m.placeholder,
           description: m.description,
           tags: m.tags,
         };
@@ -184,19 +179,23 @@ export default function Home({ memes }: HomeProps) {
   );
 }
 
-async function extractGifPlaceholder(imgSrc: string): Promise<string | null> {
-  if (!path.basename(imgSrc).endsWith(".gif")) return null;
-
-  const plaiceholder = await getPlaiceholder("/memes/firstFrames/" + imgSrc);
+async function extractPlaceholder(imgSrc: string): Promise<string> {
+  const src = `/memes/${
+    path.basename(imgSrc).endsWith(".gif") ? "firstFrames/" : ""
+  }${imgSrc}`;
+  const plaiceholder = await getPlaiceholder(src);
   return plaiceholder.base64;
 }
 
 export async function getStaticProps() {
   const loadedMemes: LoadedMeme[] = [];
   for (let rawMeme of MemeModel.MEMES) {
-    const placeholder = await extractGifPlaceholder(rawMeme.src);
     let loadedMeme: LoadedMeme = { img: rawMeme.img, tags: rawMeme.tags };
-    if (placeholder) loadedMeme.placeholder = placeholder;
+    // Assign my custom placeholder.
+    // This is necessary for GIFs as Next.js doesn't generate them.
+    // I also do it for non-GIF images, because Next.js generates huge placeholders
+    // for things like animated webps.
+    loadedMeme.img.blurDataURL = await extractPlaceholder(rawMeme.src);
     if (rawMeme.description) loadedMeme.description = rawMeme.description;
     loadedMemes.push(loadedMeme);
   }
