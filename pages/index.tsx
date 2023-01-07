@@ -5,7 +5,8 @@ import Image, { StaticImageData } from "next/image";
 import { getPlaiceholder } from "plaiceholder";
 import styles from "../styles/Home.module.css";
 import { createTheme, TextField, ThemeProvider } from "@mui/material";
-import { MemeDatabase, Meme, fuzzyMatchArray } from "../src/meme";
+import { fuzzyMatchArray } from "../src/meme";
+import * as MemeModel from "../src/meme";
 import { useEffect, useMemo, useState } from "react";
 import { Masonry } from "@mui/lab";
 
@@ -191,10 +192,8 @@ async function extractGifPlaceholder(imgSrc: string): Promise<string | null> {
 }
 
 export async function getStaticProps() {
-  const memeDb = new MemeDatabase();
-  const rawMemes: Meme[] = memeDb.memes;
   const loadedMemes: LoadedMeme[] = [];
-  for (let rawMeme of rawMemes) {
+  for (let rawMeme of MemeModel.MEMES) {
     const placeholder = await extractGifPlaceholder(rawMeme.src);
     let loadedMeme: LoadedMeme = { img: rawMeme.img, tags: rawMeme.tags };
     if (placeholder) loadedMeme.placeholder = placeholder;

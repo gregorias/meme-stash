@@ -1,3 +1,4 @@
+// The meme model of the application.
 import { StaticImageData } from "next/image";
 import { fuzzyMatch } from "./string-extra";
 import angryThumbsUp from "../public/memes/angry thumbs up.gif";
@@ -71,291 +72,281 @@ export function fuzzyMatchArray(sub: string[], sup: string[]) {
   return sub.every((vs) => sup.find((vt) => fuzzyMatch(vs, vt)) !== undefined);
 }
 
-export class MemeDatabase {
-  memes: Meme[] = [
-    {
-      img: angryThumbsUp,
-      src: "angry thumbs up.gif",
-      tags: ["angry", "juho", "thumbs-up"],
-    },
-    {
-      img: byAllMeansContinue,
-      src: "by all means continue.gif",
-      tags: ["love-is-war", "chika", "by-all-means-continue"],
-    },
-    {
-      img: classyApplause,
-      src: "classy applause.gif",
-      tags: [
-        "glass",
-        "alcohol",
-        "nod",
-        "classy",
-        "applause",
-        "men",
-        "bravo",
-        "respect",
-      ],
-    },
-    {
-      img: coralineDad,
-      src: "coraline dad.gif",
-      tags: [
-        "coraline",
-        "father",
-        "dad",
-        "type",
-        "computer",
-        "tired",
-        "boredom",
-      ],
-    },
-    {
-      img: creepyButILikeIt,
-      src: "creepy but I like it.gif",
-      tags: ["creepy", "like"],
-    },
-    {
-      img: disgustedClintEastwood,
-      src: "disgusted clint eastwood.gif",
-      tags: ["coffee", "disgust", "clint-eastwood"],
-    },
-    { img: elsaFuck, src: "elsa fuck.gif", tags: ["elsa", "frozen", "fuck"] },
-    {
-      img: hackerman,
-      src: "hackerman.gif",
-      tags: ["hackerman", "moustache", "80s"],
-    },
-    {
-      img: headTurningRockEyebrowRaise,
-      src: "rock head turning eyebrow raise.gif",
-      tags: ["dwayne-johnson", "rock", "head-turn", "eyebrow-raise"],
-    },
-    {
-      img: homerBackIntoBush,
-      src: "homer-back-into-bush.gif",
-      tags: [
-        "simpsons",
-        "homer-simpson",
-        "bush",
-        "back",
-        "retreat",
-        "embarassment",
-      ],
-    },
-    {
-      img: imNotProudOfIt,
-      src: "im-not-proud-of-it.gif",
-      tags: ["im-not-proud-of-it", "i-am-a-bit", "simon-pegg", "worlds-end"],
-    },
-    {
-      img: impossibleThanos,
-      src: "impossible Thanos.gif",
-      tags: ["impossible", "thanos"],
-    },
-    {
-      img: judgeJudyWatch,
-      src: "judge judy watch.gif",
-      tags: ["judge", "judy", "watch"],
-    },
-    {
-      img: koalaGasolineExplosion,
-      src: "koala gasoline explosion.gif",
-      tags: ["koala", "gasoline", "cigarette", "explosion"],
-    },
-    {
-      img: laughingLizard,
-      src: "Laughing Lizard.gif",
-      tags: ["laugh", "lizard", "hehehehehe", "desert"],
-    },
-    {
-      img: noTakBylo,
-      src: "no-tak-bylo-nie-zmyslam-urban.gif",
-      tags: ["no-tak-było-nie-zmyślam", "jerzy-urban"],
-    },
-    {
-      img: notReallyMaybeClassified,
-      src: "not really maybe classified.gif",
-      tags: ["not-really", "maybe", "classified", "obama"],
-    },
-    {
-      img: phewDenzelWashington,
-      src: "phew-denzel-washington.gif",
-      tags: ["denzel-washington", "phew", "relief"],
-    },
-    { img: plotTwist, src: "plot twist.gif", tags: ["plot", "twist"] },
-    {
-      img: popcornChewing,
-      src: "popcorn chewing.gif",
-      tags: ["popcorn", "chewing"],
-    },
-    {
-      img: rockOneEyebrowRaised,
-      src: "rock one eyebrow raised.gif",
-      tags: ["rock", "eyebrow", "raise", "dwayne-johnson"],
-    },
-    {
-      img: rotatingThinkEmoji,
-      src: "rotating think emoji.gif",
-      tags: ["rotate", "think", "emoji"],
-    },
-    {
-      img: sadCatOnAPillow,
-      src: "sad cat on a pillow.gif",
-      tags: ["cat", "pillow", "sad", "bed"],
-    },
-    {
-      img: shockedOwl,
-      src: "shocked owl.gif",
-      tags: ["shock", "surprise", "owl"],
-    },
-    {
-      img: steveBuscemiFuckAllThat,
-      src: "steve buscemi fuck all that.gif",
-      tags: ["buscemi", "fuck"],
-    },
-    {
-      img: sureNoddingDoubt,
-      src: "sure nodding doubt.gif",
-      tags: ["sure", "nod", "doubt"],
-    },
-    {
-      img: tellMeMore,
-      src: "tell me more.gif",
-      tags: ["tell-me-more", "song", "high-school"],
-    },
-    {
-      img: theBigLebowskiThatsLikeYourOpinionMan,
-      src: "the-big-lebowski-thats-like-your-opinion-man.gif",
-      tags: ["the-big-lebowski", "thats-like-your-opinion-man"],
-    },
-    {
-      img: thonkEmoji,
-      src: "thonk emoji.png",
-      tags: ["think", "emoji", "thonk"],
-    },
-    {
-      img: weMustHaveVengeance,
-      src: "we must have vengeance.gif",
-      tags: ["we-must-have-vengeance", "furby", "arrow"],
-    },
-    {
-      img: wtfMulletBlonde,
-      src: "what the fuck mullet blonde.gif",
-      tags: ["what-the-fuck", "wtf", "blonde", "mullet"],
-    },
-    {
-      img: zombielandWipingTearsWithMoney,
-      src: "zombieland wiping tears with money.gif",
-      tags: ["zombieland", "tear", "cry", "money"],
-    },
-    {
-      img: iUnderstoodThatReference,
-      src: "I understood that reference.gif",
-      tags: ["captain-america", "i-understood-that-reference", "avengers"],
-    },
-    {
-      img: weHaveHadAgoodRun,
-      src: "we-have-had-a-good-run-kaulder.gif",
-      tags: ["we-have-had-a-good-run"],
-    },
-    {
-      img: whatTheHeckIsGoingOnHere,
-      src: "what-the-heck-is-going-on-here-confused.gif",
-      tags: ["will-smith", "what-the-hell-is-going-on-here"],
-    },
-    { img: alarm, src: "alarm.gif", tags: ["alarm", "red"] },
-    {
-      img: wtfCat,
-      src: "WTF cat.gif",
-      tags: ["wtf", "what-the-fuck", "cat", "surprise", "shock"],
-    },
-    {
-      img: hammeringWallace,
-      src: "hammering wallace.gif",
-      tags: ["hammer", "wallace", "work"],
-    },
-    {
-      img: flintLockwoodOpenMouth,
-      src: "wow omg flint-lockwood.webp",
-      tags: [
-        "flint-lockwood",
-        "wow",
-        "omg",
-        "cloudy-with-a-chance-of-meatballs",
-        "mouth-open",
-      ],
-    },
-    {
-      img: skepticalCouldIntriguedMay,
-      src: "skeptical-intrigued.gif",
-      tags: ["skeptical-you-could", "intrigued-you-may"],
-    },
-    {
-      img: gretaYouHaveStolenMyDreams,
-      src: "greta-you-have-stolen-my-dreams.gif",
-      tags: ["greta-thunberg", "you-have-stolen-my-dreams", "empty-words"],
-    },
-    { img: brainHeart, src: "Brain heart.gif", tags: ["brain", "heart"] },
-    { img: whateverDuck, src: "whatever.gif", tags: ["whatever", "duck"] },
-    { img: shameCube, src: "shame cube.gif", tags: ["shame", "cube"] },
-    { img: noted, src: "noted-notes.gif", tags: ["noted", "notes", "office"] },
-    {
-      img: awakeButAtWhatCostCat,
-      src: "awake but at what cost cat.png",
-      tags: ["awake-but-at-what-cost", "cat"],
-    },
-    {
-      img: letsNotGetAheadOfOurselves,
-      src: "Let's not get ahead of ourselves.png",
-      tags: ["lets-not-get-ahead-of-ourselves"],
-    },
-    {
-      img: anticipationTruckCrash,
-      src: "anticipation truck crash.gif",
-      tags: ["anticipation", "truck", "crash"],
-    },
-    {
-      img: disappointedSoccer,
-      src: "disappointed soccer.gif",
-      tags: ["disappointed", "soccer"],
-    },
-    { img: sweat, src: "Sweat Peele Key.gif", tags: ["sweat", "peele", "key"] },
-    {
-      img: whatAmIWatching,
-      src: "ja pierdolę nic nie rozumiem.gif",
-      tags: ["black-man", "phone", "bus"],
-    },
-    {
-      img: freeGuyWakeUp,
-      src: "free guy wake up.gif",
-      tags: ["free-guy", "wake-up", "bed"],
-    },
-    {
-      img: okay,
-      src: "okay.gif",
-      description: "A black man saying OK after a brief pause.",
-      tags: ["okay", "black-man"],
-    },
-    {
-      img: keyLaugh,
-      src: "peele laugh suit.gif",
-      description: "Keegan-Michael Key wearing a suit and laughing.",
-      tags: ["key", "laugh", "suit"],
-    },
-    {
-      img: whatHaveIBecomeCat,
-      src: "what have i become cat.png",
-      description:
-        'A sad cat looking in a mirror and asking "What have I become?"',
-      tags: ["cat", "mirror", "what-have-i-become", "sad"],
-    },
-    {
-      img: heresyDetected,
-      src: "heresy detected.gif",
-      description:
-        'Warhammer soldiers running around with a "Heresy Detected" alert in the background.',
-      tags: ["heresy-detected", "warhammer", "alert"],
-    },
-  ];
-}
+export const MEMES: Meme[] = [
+  {
+    img: angryThumbsUp,
+    src: "angry thumbs up.gif",
+    tags: ["angry", "juho", "thumbs-up"],
+  },
+  {
+    img: byAllMeansContinue,
+    src: "by all means continue.gif",
+    tags: ["love-is-war", "chika", "by-all-means-continue"],
+  },
+  {
+    img: classyApplause,
+    src: "classy applause.gif",
+    tags: [
+      "glass",
+      "alcohol",
+      "nod",
+      "classy",
+      "applause",
+      "men",
+      "bravo",
+      "respect",
+    ],
+  },
+  {
+    img: coralineDad,
+    src: "coraline dad.gif",
+    tags: ["coraline", "father", "dad", "type", "computer", "tired", "boredom"],
+  },
+  {
+    img: creepyButILikeIt,
+    src: "creepy but I like it.gif",
+    tags: ["creepy", "like"],
+  },
+  {
+    img: disgustedClintEastwood,
+    src: "disgusted clint eastwood.gif",
+    tags: ["coffee", "disgust", "clint-eastwood"],
+  },
+  { img: elsaFuck, src: "elsa fuck.gif", tags: ["elsa", "frozen", "fuck"] },
+  {
+    img: hackerman,
+    src: "hackerman.gif",
+    tags: ["hackerman", "moustache", "80s"],
+  },
+  {
+    img: headTurningRockEyebrowRaise,
+    src: "rock head turning eyebrow raise.gif",
+    tags: ["dwayne-johnson", "rock", "head-turn", "eyebrow-raise"],
+  },
+  {
+    img: homerBackIntoBush,
+    src: "homer-back-into-bush.gif",
+    tags: [
+      "simpsons",
+      "homer-simpson",
+      "bush",
+      "back",
+      "retreat",
+      "embarassment",
+    ],
+  },
+  {
+    img: imNotProudOfIt,
+    src: "im-not-proud-of-it.gif",
+    tags: ["im-not-proud-of-it", "i-am-a-bit", "simon-pegg", "worlds-end"],
+  },
+  {
+    img: impossibleThanos,
+    src: "impossible Thanos.gif",
+    tags: ["impossible", "thanos"],
+  },
+  {
+    img: judgeJudyWatch,
+    src: "judge judy watch.gif",
+    tags: ["judge", "judy", "watch"],
+  },
+  {
+    img: koalaGasolineExplosion,
+    src: "koala gasoline explosion.gif",
+    tags: ["koala", "gasoline", "cigarette", "explosion"],
+  },
+  {
+    img: laughingLizard,
+    src: "Laughing Lizard.gif",
+    tags: ["laugh", "lizard", "hehehehehe", "desert"],
+  },
+  {
+    img: noTakBylo,
+    src: "no-tak-bylo-nie-zmyslam-urban.gif",
+    tags: ["no-tak-było-nie-zmyślam", "jerzy-urban"],
+  },
+  {
+    img: notReallyMaybeClassified,
+    src: "not really maybe classified.gif",
+    tags: ["not-really", "maybe", "classified", "obama"],
+  },
+  {
+    img: phewDenzelWashington,
+    src: "phew-denzel-washington.gif",
+    tags: ["denzel-washington", "phew", "relief"],
+  },
+  { img: plotTwist, src: "plot twist.gif", tags: ["plot", "twist"] },
+  {
+    img: popcornChewing,
+    src: "popcorn chewing.gif",
+    tags: ["popcorn", "chewing"],
+  },
+  {
+    img: rockOneEyebrowRaised,
+    src: "rock one eyebrow raised.gif",
+    tags: ["rock", "eyebrow", "raise", "dwayne-johnson"],
+  },
+  {
+    img: rotatingThinkEmoji,
+    src: "rotating think emoji.gif",
+    tags: ["rotate", "think", "emoji"],
+  },
+  {
+    img: sadCatOnAPillow,
+    src: "sad cat on a pillow.gif",
+    tags: ["cat", "pillow", "sad", "bed"],
+  },
+  {
+    img: shockedOwl,
+    src: "shocked owl.gif",
+    tags: ["shock", "surprise", "owl"],
+  },
+  {
+    img: steveBuscemiFuckAllThat,
+    src: "steve buscemi fuck all that.gif",
+    tags: ["buscemi", "fuck"],
+  },
+  {
+    img: sureNoddingDoubt,
+    src: "sure nodding doubt.gif",
+    tags: ["sure", "nod", "doubt"],
+  },
+  {
+    img: tellMeMore,
+    src: "tell me more.gif",
+    tags: ["tell-me-more", "song", "high-school"],
+  },
+  {
+    img: theBigLebowskiThatsLikeYourOpinionMan,
+    src: "the-big-lebowski-thats-like-your-opinion-man.gif",
+    tags: ["the-big-lebowski", "thats-like-your-opinion-man"],
+  },
+  {
+    img: thonkEmoji,
+    src: "thonk emoji.png",
+    tags: ["think", "emoji", "thonk"],
+  },
+  {
+    img: weMustHaveVengeance,
+    src: "we must have vengeance.gif",
+    tags: ["we-must-have-vengeance", "furby", "arrow"],
+  },
+  {
+    img: wtfMulletBlonde,
+    src: "what the fuck mullet blonde.gif",
+    tags: ["what-the-fuck", "wtf", "blonde", "mullet"],
+  },
+  {
+    img: zombielandWipingTearsWithMoney,
+    src: "zombieland wiping tears with money.gif",
+    tags: ["zombieland", "tear", "cry", "money"],
+  },
+  {
+    img: iUnderstoodThatReference,
+    src: "I understood that reference.gif",
+    tags: ["captain-america", "i-understood-that-reference", "avengers"],
+  },
+  {
+    img: weHaveHadAgoodRun,
+    src: "we-have-had-a-good-run-kaulder.gif",
+    tags: ["we-have-had-a-good-run"],
+  },
+  {
+    img: whatTheHeckIsGoingOnHere,
+    src: "what-the-heck-is-going-on-here-confused.gif",
+    tags: ["will-smith", "what-the-hell-is-going-on-here"],
+  },
+  { img: alarm, src: "alarm.gif", tags: ["alarm", "red"] },
+  {
+    img: wtfCat,
+    src: "WTF cat.gif",
+    tags: ["wtf", "what-the-fuck", "cat", "surprise", "shock"],
+  },
+  {
+    img: hammeringWallace,
+    src: "hammering wallace.gif",
+    tags: ["hammer", "wallace", "work"],
+  },
+  {
+    img: flintLockwoodOpenMouth,
+    src: "wow omg flint-lockwood.webp",
+    tags: [
+      "flint-lockwood",
+      "wow",
+      "omg",
+      "cloudy-with-a-chance-of-meatballs",
+      "mouth-open",
+    ],
+  },
+  {
+    img: skepticalCouldIntriguedMay,
+    src: "skeptical-intrigued.gif",
+    tags: ["skeptical-you-could", "intrigued-you-may"],
+  },
+  {
+    img: gretaYouHaveStolenMyDreams,
+    src: "greta-you-have-stolen-my-dreams.gif",
+    tags: ["greta-thunberg", "you-have-stolen-my-dreams", "empty-words"],
+  },
+  { img: brainHeart, src: "Brain heart.gif", tags: ["brain", "heart"] },
+  { img: whateverDuck, src: "whatever.gif", tags: ["whatever", "duck"] },
+  { img: shameCube, src: "shame cube.gif", tags: ["shame", "cube"] },
+  { img: noted, src: "noted-notes.gif", tags: ["noted", "notes", "office"] },
+  {
+    img: awakeButAtWhatCostCat,
+    src: "awake but at what cost cat.png",
+    tags: ["awake-but-at-what-cost", "cat"],
+  },
+  {
+    img: letsNotGetAheadOfOurselves,
+    src: "Let's not get ahead of ourselves.png",
+    tags: ["lets-not-get-ahead-of-ourselves"],
+  },
+  {
+    img: anticipationTruckCrash,
+    src: "anticipation truck crash.gif",
+    tags: ["anticipation", "truck", "crash"],
+  },
+  {
+    img: disappointedSoccer,
+    src: "disappointed soccer.gif",
+    tags: ["disappointed", "soccer"],
+  },
+  { img: sweat, src: "Sweat Peele Key.gif", tags: ["sweat", "peele", "key"] },
+  {
+    img: whatAmIWatching,
+    src: "ja pierdolę nic nie rozumiem.gif",
+    tags: ["black-man", "phone", "bus"],
+  },
+  {
+    img: freeGuyWakeUp,
+    src: "free guy wake up.gif",
+    tags: ["free-guy", "wake-up", "bed"],
+  },
+  {
+    img: okay,
+    src: "okay.gif",
+    description: "A black man saying OK after a brief pause.",
+    tags: ["okay", "black-man"],
+  },
+  {
+    img: keyLaugh,
+    src: "peele laugh suit.gif",
+    description: "Keegan-Michael Key wearing a suit and laughing.",
+    tags: ["key", "laugh", "suit"],
+  },
+  {
+    img: whatHaveIBecomeCat,
+    src: "what have i become cat.png",
+    description:
+      'A sad cat looking in a mirror and asking "What have I become?"',
+    tags: ["cat", "mirror", "what-have-i-become", "sad"],
+  },
+  {
+    img: heresyDetected,
+    src: "heresy detected.gif",
+    description:
+      'Warhammer soldiers running around with a "Heresy Detected" alert in the background.',
+    tags: ["heresy-detected", "warhammer", "alert"],
+  },
+];
