@@ -1,14 +1,13 @@
-import path from "path";
 import Head from "next/head";
 import { Lobster, Roboto } from "@next/font/google";
 import Image, { StaticImageData } from "next/image";
-import { getPlaiceholder } from "plaiceholder";
 import styles from "../styles/Home.module.css";
 import { createTheme, TextField, ThemeProvider } from "@mui/material";
 import { fuzzyMatchArray } from "../src/meme";
 import * as MemeModel from "../src/meme";
 import { useEffect, useMemo, useState } from "react";
 import { Masonry } from "@mui/lab";
+import { getPlaiceholder } from "plaiceholder";
 
 const lobster = Lobster({ weight: "400", subsets: ["latin"] });
 const roboto = Roboto({ weight: "400", subsets: ["latin"] });
@@ -179,23 +178,13 @@ export default function Home({ memes }: HomeProps) {
   );
 }
 
-async function extractPlaceholder(imgSrc: string): Promise<string> {
-  const src = `/memes/${
-    path.basename(imgSrc).endsWith(".gif") ? "firstFrames/" : ""
-  }${imgSrc}`;
-  const plaiceholder = await getPlaiceholder(src);
-  return plaiceholder.base64;
-}
-
 export async function getStaticProps() {
+  const srcMemes = await MemeModel.fetchMemes((src) => {
+    return getPlaiceholder(src).then((r) => r.base64);
+  });
   const loadedMemes: LoadedMeme[] = [];
-  for (let rawMeme of MemeModel.MEMES) {
+  for (let rawMeme of srcMemes) {
     let loadedMeme: LoadedMeme = { img: rawMeme.img, tags: rawMeme.tags };
-    // Assign my custom placeholder.
-    // This is necessary for GIFs as Next.js doesn't generate them.
-    // I also do it for non-GIF images, because Next.js generates huge placeholders
-    // for things like animated webps.
-    loadedMeme.img.blurDataURL = await extractPlaceholder(rawMeme.src);
     if (rawMeme.description) loadedMeme.description = rawMeme.description;
     loadedMemes.push(loadedMeme);
   }

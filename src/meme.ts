@@ -1,4 +1,5 @@
 // The meme model of the application.
+import path from "path";
 import { StaticImageData } from "next/image";
 import { fuzzyMatch } from "./string-extra";
 import angryThumbsUp from "../public/memes/angry thumbs up.gif";
@@ -77,7 +78,56 @@ export function fuzzyMatchArray(sub: string[], sup: string[]) {
   return sub.every((vs) => sup.find((vt) => fuzzyMatch(vs, vt)) !== undefined);
 }
 
-export const MEMES: Meme[] = [
+interface Base64 {
+  base64: string;
+}
+
+/**
+ * Generates a placeholder for images.
+ *
+ * This function works on the memes in the '/public/memes' directory.
+ *
+ * @async
+ * @param {(str: string) => Promise<string>} getPlaiceholder
+ * @param {string} imgSrc - The basename of the meme file.
+ * @returns {Promise<string>} A base64 encoded placeholder.
+ */
+async function generatePlaceholder(
+  getPlaiceholder: (src: string) => Promise<string>,
+  imgSrc: string
+): Promise<string> {
+  const src = `/memes/${
+    path.basename(imgSrc).endsWith(".gif") ? "firstFrames/" : ""
+  }${imgSrc}`;
+  return await getPlaiceholder(src);
+}
+
+/**
+ * Fetches all memes.
+ *
+ * @async
+ * @param {(str: string) => Promise<string>} getPlaiceholder
+ * @returns {Promise<Meme[]>}
+ */
+export async function fetchMemes(
+  getPlaiceholder: (str: string) => Promise<string>
+): Promise<Meme[]> {
+  // Assign my custom placeholder.
+  // This is necessary for GIFs as Next.js doesn't generate them.
+  // I also do it for non-GIF images, because Next.js generates huge placeholders
+  // for things like animated webps.
+  return await Promise.all(
+    MEMES.map(async (meme) => {
+      meme.img.blurDataURL = await generatePlaceholder(
+        getPlaiceholder,
+        meme.src
+      );
+      return meme;
+    })
+  );
+}
+
+const MEMES: Meme[] = [
   {
     img: angryThumbsUp,
     src: "angry thumbs up.gif",
