@@ -61,6 +61,7 @@ import complaintsGratitude from "../public/memes/complaints gratitude.jpg";
 import notAmusedMichael from "../public/memes/not amused.gif";
 import wtfMario from "../public/memes/wtf mario.gif";
 import itsTooLateMother from "../public/memes/it's too late mother, i have seen everything.jpg";
+import puppetHolup from "../public/memes/monkey-puppet-holup.gif";
 
 export interface Meme {
   // The meme image.
@@ -376,5 +377,11 @@ export const MEMES: Meme[] = [
     src: "it's too late mother, i have seen everything.jpg",
     description: 'A child saying "It\'s too late, mother."',
     tags: ["its-too-late-mother", "i-have-seen-everything", "gay"],
+  },
+  {
+    img: puppetHolup,
+    src: "monkey-puppet-holup.gif",
+    description: "A puppet monkey.",
+    tags: ["monkey", "puppet", "holup"],
   },
 ];
