@@ -88,7 +88,7 @@ async function addMemeToRegistry(
   const memesInitializer = getPropertyOrThrow(memeDb, "memes").getInitializer();
   if (!(memesInitializer instanceof ArrayLiteralExpression)) throw new Error();
   memesInitializer.addElement(`{ img: ${memeName}, src: '${memeBasename}',
-                              description: "${memeDescription}",
+                              description: ${JSON.stringify(memeDescription)},
                               tags: [${tags
                                 .map((t) => '"' + t + '"')
                                 .join(",")}]}`);
