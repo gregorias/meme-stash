@@ -14,12 +14,9 @@ import * as readline from "node:readline/promises";
 import path from "node:path";
 import {
   ArrayLiteralExpression,
-  ClassDeclaration,
   Project,
-  PropertyDeclaration,
   SourceFile,
   VariableDeclaration,
-  VariableStatement,
 } from "ts-morph";
 import { exec } from "node:child_process";
 
@@ -54,21 +51,6 @@ async function main(): Promise<void> {
 function extractFilePath(): string {
   if (argv.length < 3) throw new Error("No meme filename has been provided.");
   return argv[2];
-}
-
-function getPropertyOrThrow(
-  classDeclaration: ClassDeclaration,
-  propertyName: string
-): PropertyDeclaration {
-  for (let member of classDeclaration.getMembers()) {
-    if (
-      member instanceof PropertyDeclaration &&
-      member.getName() === propertyName
-    ) {
-      return member;
-    }
-  }
-  throw new Error();
 }
 
 async function addMemeToRegistry(
