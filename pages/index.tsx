@@ -2,7 +2,12 @@ import Head from "next/head";
 import { Lobster, Roboto } from "@next/font/google";
 import Image, { StaticImageData } from "next/image";
 import styles from "../styles/Home.module.css";
-import { createTheme, TextField, ThemeProvider } from "@mui/material";
+import {
+  createTheme,
+  StyledEngineProvider,
+  TextField,
+  ThemeProvider,
+} from "@mui/material";
 import { fuzzyMatchArray } from "../src/meme";
 import * as MemeModel from "../src/meme";
 import { useEffect, useMemo, useState } from "react";
@@ -27,7 +32,7 @@ function Meme({ meme, description, tags }: MemeImage) {
       }
     >
       <Image
-        className={styles.gif + " w-full"}
+        className={styles.gif + " w-full h-full"}
         src={meme}
         placeholder="blur"
         blurDataURL={meme.blurDataURL}
@@ -142,38 +147,43 @@ export default function Home({ memes }: HomeProps) {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <Head>
-          <title>Meme Stash</title>
-          <meta
-            name="description"
-            content="An app for stashing quality reaction memes."
-          />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <main className="flex justify-center px-4 md:px-24">
-          <div className="flex flex-col flex-grow items-center max-w-screen-lg">
-            <h1
-              className={
-                lobster.className + " text-center my-4 text-6xl lg:text-9xl"
-              }
-            >
-              Meme Stash
-            </h1>
-            <TextField
-              id="search-box"
-              label={'Search (e.g., "bed cat", "fuck")'}
-              variant="outlined"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              fullWidth={true}
-              autoFocus={true}
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={theme}>
+          <Head>
+            <title>Meme Stash</title>
+            <meta
+              name="description"
+              content="An app for stashing quality reaction memes."
             />
-            <MemeDisplay memes={displayedMemes} />
-          </div>
-        </main>
-      </ThemeProvider>
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1"
+            />
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
+          <main className="flex justify-center px-4 md:px-24">
+            <div className="flex flex-col flex-grow items-center max-w-screen-lg">
+              <h1
+                className={
+                  lobster.className + " text-center my-4 text-6xl lg:text-9xl"
+                }
+              >
+                Meme Stash
+              </h1>
+              <TextField
+                id="search-box"
+                label={'Search (e.g., "bed cat", "fuck")'}
+                variant="outlined"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                fullWidth={true}
+                autoFocus={true}
+              />
+              <MemeDisplay memes={displayedMemes} />
+            </div>
+          </main>
+        </ThemeProvider>
+      </StyledEngineProvider>
     </>
   );
 }
