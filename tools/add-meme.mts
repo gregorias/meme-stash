@@ -18,6 +18,8 @@ import {
   Project,
   PropertyDeclaration,
   SourceFile,
+  VariableDeclaration,
+  VariableStatement,
 } from "ts-morph";
 import { exec } from "node:child_process";
 
@@ -84,8 +86,10 @@ async function addMemeToRegistry(
     defaultImport: memeName,
     moduleSpecifier: `../public/memes/${memeBasename}`,
   });
-  const memeDb: ClassDeclaration = memeSource.getClassOrThrow("MemeDatabase");
-  const memesInitializer = getPropertyOrThrow(memeDb, "memes").getInitializer();
+  const memesArray: VariableDeclaration = memeSource
+    .getVariableStatementOrThrow("MEMES")
+    .getDeclarations()[0];
+  const memesInitializer = memesArray.getInitializer();
   if (!(memesInitializer instanceof ArrayLiteralExpression)) throw new Error();
   memesInitializer.addElement(`{ img: ${memeName}, src: '${memeBasename}',
                               description: ${JSON.stringify(memeDescription)},

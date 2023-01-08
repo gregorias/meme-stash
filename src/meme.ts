@@ -58,6 +58,7 @@ import keyLaugh from "../public/memes/peele laugh suit.gif";
 import whatHaveIBecomeCat from "../public/memes/what have i become cat.png";
 import heresyDetected from "../public/memes/heresy detected.gif";
 import complaintsGratitude from "../public/memes/complaints gratitude.jpg";
+import notAmusedMichael from "../public/memes/not amused.gif";
 
 export interface Meme {
   // The meme image.
@@ -355,5 +356,11 @@ export const MEMES: Meme[] = [
     src: "complaints gratitude.jpg",
     description: 'People queueing before a window with a "complaints" banner.',
     tags: ["complaints", "gratitude", "queue"],
+  },
+  {
+    img: notAmusedMichael,
+    src: "not amused.gif",
+    description: 'An unamused Michael Scott from "The Office."',
+    tags: ["the-office", "michael-scott", "not-amused"],
   },
 ];
