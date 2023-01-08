@@ -57,6 +57,7 @@ import okay from "../public/memes/okay.gif";
 import keyLaugh from "../public/memes/peele laugh suit.gif";
 import whatHaveIBecomeCat from "../public/memes/what have i become cat.png";
 import heresyDetected from "../public/memes/heresy detected.gif";
+import complaintsGratitude from "../public/memes/complaints gratitude.jpg";
 
 export interface Meme {
   // The meme image.
@@ -348,5 +349,11 @@ export const MEMES: Meme[] = [
     description:
       'Warhammer soldiers running around with a "Heresy Detected" alert in the background.',
     tags: ["heresy-detected", "warhammer", "alert"],
+  },
+  {
+    img: complaintsGratitude,
+    src: "complaints gratitude.jpg",
+    description: 'People queueing before a window with a "complaints" banner.',
+    tags: ["complaints", "gratitude", "queue"],
   },
 ];
