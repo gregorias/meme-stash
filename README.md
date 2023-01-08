@@ -2,15 +2,21 @@ An app for stashing quality reaction memes.
 
 ## Design
 
-This site hardcodes the memes in the repo under `public/memes`. It
-also displays placeholder images that you pregenerate and save at `public/memes/firstFrames`.
-You can pregenere the first frames of each GIF with `bash tools/generate-first-frames.sh`.
+This site hardcodes the memes in the repo under `public/memes`. It also
+displays placeholder images that you pregenerate and save at
+`public/memes/firstFrames`. You can pregenerate the first frames of each GIF
+with `bash tools/generate-first-frames.sh`.
 
 To add a new meme, run
 
 ```shell
 ts-node --esm tools/add-meme.mts GIF_PATH
 ```
+
+### On WebP
+
+Do not use animated WebP images. WebP offers repeated animation like GIFs, but
+it doesn't work in chat apps like Signal.
 
 ## Development
 
