@@ -144,6 +144,7 @@ const MEMES: Meme[] = [
     tags: [
       "glass",
       "alcohol",
+      "clap",
       "nod",
       "classy",
       "applause",
