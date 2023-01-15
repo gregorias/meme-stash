@@ -41,7 +41,7 @@ function Meme({ meme, description, tags }: MemeImage) {
       <div
         className={
           styles.overlay +
-          " hidden absolute left-0 top-0 w-full h-full hover:block pointer-events-none"
+          " absolute left-0 top-0 w-full h-full hover:block pointer-events-none"
         }
         style={{
           backgroundImage:
@@ -52,7 +52,7 @@ function Meme({ meme, description, tags }: MemeImage) {
         className={
           styles.tags +
           ` ${roboto.className}` +
-          " hidden absolute w-full p-2 bottom-0 text-white pointer-events-none text-sm"
+          " absolute w-full p-2 bottom-0 text-white pointer-events-none text-sm"
         }
       >
         {tagString}

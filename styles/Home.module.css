@@ -4,6 +4,12 @@
 .gifContainer:hover {
   transform: scale(1.03);
 }
+.overlay {
+  display: none;
+}
+.tags {
+  display: none;
+}
 .gifContainer:hover .overlay {
   display: block;
 }
