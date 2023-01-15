@@ -43,10 +43,6 @@ function Meme({ meme, description, tags }: MemeImage) {
           styles.overlay +
           " absolute left-0 top-0 w-full h-full hover:block pointer-events-none"
         }
-        style={{
-          backgroundImage:
-            "linear-gradient(-180deg,transparent 50%,rgba(0,0,0,.75) 99%)",
-        }}
       />
       <div
         className={
